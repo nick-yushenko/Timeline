@@ -239,8 +239,9 @@ window.addEventListener('scroll', function (e) {
   // Высота прокрутки 
   var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 
-  // Фиксация и смена цвета у шапки
   hideHeroBtn(scrollTop)
+
+  // Фиксация и смена цвета у шапки
 
   if (scrollTop >= 80) {
     fixHeader()
@@ -258,27 +259,30 @@ window.addEventListener('scroll', function (e) {
   }
   // Закрепление навигации, когда доскролили до хроники
 
-  if (window.pageYOffset >= scrollHeight - menuHeight) { // если проскролили до хроники (она полностью видна)
-    if (window.innerWidth <= 900) {
-      nav.style.position = 'fixed'
-      nav.style.left = 0
-      nav.style.top = menuHeight + 'px'
+  if (chronology) {
+    if (window.pageYOffset >= scrollHeight - menuHeight) { // если проскролили до хроники (она полностью видна)
+      if (window.innerWidth <= 900) {
+        nav.style.position = 'fixed'
+        nav.style.left = 0
+        nav.style.top = menuHeight + 'px'
 
+      } else {
+        nav.style.position = 'fixed'
+        nav.style.paddingTop = menuHeight + 80 + 'px'
+      }
     } else {
-      nav.style.position = 'fixed'
-      nav.style.paddingTop = menuHeight + 80 + 'px'
-    }
-  } else {
-    if (window.innerWidth <= 900) {
-      nav.style.position = 'absolute'
-      nav.style.left = 0
-      nav.style.top = 0
+      if (window.innerWidth <= 900) {
+        nav.style.position = 'absolute'
+        nav.style.left = 0
+        nav.style.top = 0
 
-    } else {
-      nav.style.paddingTop = '80px'
-      nav.style.position = 'absolute'
+      } else {
+        nav.style.paddingTop = '80px'
+        nav.style.position = 'absolute'
+      }
     }
   }
+
 
 
   if (isExistBlock(curBlockNum - 1))
@@ -325,49 +329,53 @@ window.addEventListener('scroll', function (e) {
 
 
 
+
   // Если кнопка "В начало хронологии" находится над темным блоком 
-  var darkBlocks = document.querySelectorAll('.chronology-item__wrap.primary .chronology-item')
-  let btnSpan = document.querySelector('.chronology-scroll__btn span')
-  var winH = window.innerHeight
+  if (chronology) {
 
-  let blocks = []
 
-  var bPos = 50 // Значение bottom для кнопки (отступ от нижней границы экрана)  
-  var btnSize = 40 // высота иконки   
-  var marginB = 30 // Отступ от текста до иконки
-  var e = 0 // погрешность
-  if (window.innerWidth <= 1600)
-    btnSize = 35
-  if (window.innerWidth <= 1400)
-    marginB = 20
-  if (window.innerWidth <= 1300)
-    btnSize = 30
-  if (window.innerWidth <= 1200)
-    btnSize = 25
+    var darkBlocks = document.querySelectorAll('.chronology-item__wrap.primary .chronology-item')
+    let btnSpan = document.querySelector('.chronology-scroll__btn span')
+    var winH = window.innerHeight
 
-  darkBlocks.forEach(function (item) {
-    blocks.push({
-      y: item.getBoundingClientRect().top,
-      height: item.clientHeight,
+    let blocks = []
 
+    var bPos = 50 // Значение bottom для кнопки (отступ от нижней границы экрана)  
+    var btnSize = 40 // высота иконки   
+    var marginB = 30 // Отступ от текста до иконки
+    var e = 0 // погрешность
+    if (window.innerWidth <= 1600)
+      btnSize = 35
+    if (window.innerWidth <= 1400)
+      marginB = 20
+    if (window.innerWidth <= 1300)
+      btnSize = 30
+    if (window.innerWidth <= 1200)
+      btnSize = 25
+
+    darkBlocks.forEach(function (item) {
+      blocks.push({
+        y: item.getBoundingClientRect().top,
+        height: item.clientHeight,
+
+      })
     })
-  })
 
-  let count = 0
+    let count = 0
 
-  for (var i = 0; i < blocks.length; i++) {
-    if (blocks[i].y - winH + bPos + btnSize + marginB <= 0 && blocks[i].y - winH + bPos + btnSize + marginB + blocks[i].height > 0)
-      count++
+    for (var i = 0; i < blocks.length; i++) {
+      if (blocks[i].y - winH + bPos + btnSize + marginB <= 0 && blocks[i].y - winH + bPos + btnSize + marginB + blocks[i].height > 0)
+        count++
+    }
+
+
+    // Если под кнопкой нет темных элементов
+    if (count == 0)
+      btnSpan.classList.remove('overDark')
+    else
+      btnSpan.classList.add('overDark')
+
   }
-
-
-  // Если под кнопкой нет темных элементов
-  if (count == 0)
-    btnSpan.classList.remove('overDark')
-  else
-    btnSpan.classList.add('overDark')
-
-
 
 })
 
@@ -414,7 +422,7 @@ function fixHeader() {
 
 function unfixHeader() {
   var header = document.querySelector('.header')
-  if (header) {
+  if (header && !header.classList.contains('fixed')) {
     header.classList.remove('fixed')
   }
 }
@@ -422,9 +430,11 @@ function unfixHeader() {
 function hideHeroBtn(scrollTop) {
 
   var heroBtn = document.querySelector('.hero-scroll__btn')
+  if (heroBtn) {
+    needScroll = 200 - scrollTop
+    heroBtn.style.opacity = (needScroll > 0) ? needScroll / 100 + 0.05 : 0
 
-  needScroll = 200 - scrollTop
-  heroBtn.style.opacity = (needScroll > 0) ? needScroll / 100 + 0.05 : 0
+  }
 
 
 }
@@ -432,10 +442,13 @@ function hideHeroBtn(scrollTop) {
 function showChronologyBtn() {
 
   var chronologyBtn = document.querySelector('.chronology-scroll__btn')
-  chronologyBtn.style.opacity = 1
+  if (chronologyBtn)
+    chronologyBtn.style.opacity = 1
 }
 
 function hideChronologyBtn() {
   var chronologyBtn = document.querySelector('.chronology-scroll__btn')
-  chronologyBtn.style.opacity = 0
+  if (chronologyBtn)
+
+    chronologyBtn.style.opacity = 0
 }
