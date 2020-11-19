@@ -11,24 +11,28 @@ if ('NodeList' in window && !NodeList.prototype.forEach) {
 
 
 
-let scrollHeight = (window.innerHeight <= 1000) ? window.innerHeight : 1000;
 
-if (window.innerWidth <= 768)
-  scrollHeight = 700
-if (window.innerWidth <= 650)
-  scrollHeight = 650
-if (window.innerWidth <= 500)
-  scrollHeight = 600
-if (window.innerWidth <= 425)
-  scrollHeight = 550
+// let scrollToChronology = (window.innerHeight <= 1000) ? window.innerHeight : 1000;
+let scrollToChronology 
+let scrollHeight = document.querySelector('.hero').clientHeight + document.querySelector('.about').clientHeight
+
+
+// if (window.innerWidth <= 768)
+//   scrollToChronology = 700
+// if (window.innerWidth <= 650)
+//   scrollToChronology = 650
+// if (window.innerWidth <= 500)
+//   scrollToChronology = 600
+// if (window.innerWidth <= 425)
+//   scrollToChronology = 550
 // Высота шапки 
-var menuHeight = 91
+var menuHeight = 90
 if (window.innerWidth <= 1600)
-  menuHeight = 81
+  menuHeight = 80
 if (window.innerWidth <= 1500)
-  menuHeight = 71
+  menuHeight = 70
 if (window.innerWidth <= 1300)
-  menuHeight = 61
+  menuHeight = 60
 
 var mobNavHeight = (window.innerWidth <= 900) ? 80 : 0
 if (window.innerWidth <= 600)
@@ -143,7 +147,7 @@ if (scrollBtn) {
 
 
     $("html, body").animate({
-      scrollTop: scrollHeight - menuHeight - mobNavHeight + "px"
+      scrollTop: scrollHeight + "px"
     }, {
       duration: 500,
       easing: "swing"
@@ -161,7 +165,7 @@ if (scrollTopBtn && chronology) {
 
 
     $('html, body').animate({
-      scrollTop: scrollHeight - menuHeight - mobNavHeight + "px"
+      scrollTop: scrollHeight + "px"
     }, {
       duration: 500,
       easing: "swing"
@@ -183,10 +187,10 @@ if (chronologyNavItems) {
 
 
       // Прокрутка к хронологии, если это требуется 
-      if (window.pageYOffset < scrollHeight) // не докрутили полностью 
+      if (window.pageYOffset < scrollToChronology) // не докрутили полностью 
       {
         $("html, body").animate({
-          scrollTop: scrollHeight + "px"
+          scrollTop: scrollToChronology + "px"
         }, {
           duration: 200,
           easing: "swing"
@@ -232,6 +236,9 @@ function isExistBlock(blockNum) {
 
 window.addEventListener('scroll', function (e) {
 
+  // сколько нужно проскролить до хронологии
+  scrollToChronology = chronology.getBoundingClientRect().top
+
   //Высота всей страницы с учетом прокрутки
   var sHeight = document.documentElement.scrollHeight;
   var clientHeight = document.documentElement.clientHeight;
@@ -260,7 +267,7 @@ window.addEventListener('scroll', function (e) {
   // Закрепление навигации, когда доскролили до хроники
 
   if (chronology) {
-    if (window.pageYOffset >= scrollHeight - menuHeight) { // если проскролили до хроники (она полностью видна)
+    if (scrollToChronology - menuHeight <= 0) { // если проскролили до хроники (она полностью видна)
       if (window.innerWidth <= 900) {
         nav.style.position = 'fixed'
         nav.style.left = 0
@@ -325,6 +332,8 @@ window.addEventListener('scroll', function (e) {
       }
     }
   }
+
+  
   scrollPos = st;
 
 
