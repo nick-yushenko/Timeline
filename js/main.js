@@ -469,3 +469,40 @@ function hideChronologyBtn() {
 
     chronologyBtn.style.opacity = 0
 }
+
+
+
+// Страница FAQ
+
+const FAQitems = document.querySelectorAll('.faq-item')
+
+if (FAQitems) {
+  FAQitems.forEach(function (item) {
+    const openBtn = item.querySelector('.open')
+
+    openBtn.addEventListener('click', function () {
+      const textBlocks = item.querySelectorAll('.faq-item__text p')
+      const text = item.querySelector('.faq-item__text')
+      let textHeight = 0;
+
+
+      if (item.classList.contains('opened')) {
+        item.classList.remove('opened')
+      } else {
+        // закрыть все остальные блоки 
+        FAQitems.forEach(function (elem) {
+          elem.classList.remove('opened')
+        })
+        textBlocks.forEach(function (p) {
+          textHeight = textHeight + p.clientHeight + 10
+        })
+        item.classList.add('opened')
+      }
+
+      text.style.height = textHeight + 'px'
+
+
+
+    })
+  })
+}
