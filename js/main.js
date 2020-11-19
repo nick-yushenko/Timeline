@@ -13,9 +13,12 @@ if ('NodeList' in window && !NodeList.prototype.forEach) {
 
 
 // let scrollToChronology = (window.innerHeight <= 1000) ? window.innerHeight : 1000;
-let scrollToChronology 
-let scrollHeight = document.querySelector('.hero').clientHeight + document.querySelector('.about').clientHeight
-
+let scrollToChronology
+let scrollHeight
+if (document.querySelector('.hero') && document.querySelector('.about'))
+  scrollHeight = document.querySelector('.hero').clientHeight + document.querySelector('.about').clientHeight
+else
+  scrollHeight = null
 
 // if (window.innerWidth <= 768)
 //   scrollToChronology = 700
@@ -237,7 +240,8 @@ function isExistBlock(blockNum) {
 window.addEventListener('scroll', function (e) {
 
   // сколько нужно проскролить до хронологии
-  scrollToChronology = chronology.getBoundingClientRect().top
+  if (chronology)
+    scrollToChronology = chronology.getBoundingClientRect().top
 
   //Высота всей страницы с учетом прокрутки
   var sHeight = document.documentElement.scrollHeight;
@@ -291,50 +295,54 @@ window.addEventListener('scroll', function (e) {
   }
 
 
+  if (chronology) {
+    if (isExistBlock(curBlockNum - 1))
+      prevBlockOffset = chronologyNavBlocks[curBlockNum - 1].getBoundingClientRect().top
+    else
+      prevBlockOffset = null
+    if (isExistBlock(curBlockNum))
+      curBlockOffset = chronologyNavBlocks[curBlockNum].getBoundingClientRect().top
+    else
+      curBlockOffset = null
 
-  if (isExistBlock(curBlockNum - 1))
-    prevBlockOffset = chronologyNavBlocks[curBlockNum - 1].getBoundingClientRect().top
-  else
-    prevBlockOffset = null
-  if (isExistBlock(curBlockNum))
-    curBlockOffset = chronologyNavBlocks[curBlockNum].getBoundingClientRect().top
-  else
-    curBlockOffset = null
-
-  if (isExistBlock(curBlockNum + 1))
-    nextBlockOffset = chronologyNavBlocks[curBlockNum + 1].getBoundingClientRect().top
-  else
-    nextBlockOffset = null
-
-
-  var st = $(this).scrollTop();
-  if (st > scrollPos) {
-    // Скрол вниз
-    if (nextBlockOffset != null)
-      if (nextBlockOffset <= (menuHeight + mobNavHeight) * 2 || pageHeight <= scrollTop + 10) {
-        // alert('next!')
-        chronologyNavItems.forEach(function (item) {
-          item.classList.remove('current')
-        })
-        chronologyNavItems[curBlockNum + 1].classList.add('current')
-        curBlockNum++
-      }
-  } else {
-    // Скрол наверх
-    if (prevBlockOffset != null) {
-      if (curBlockOffset >= (menuHeight + mobNavHeight) * 4) {
-        // alert('PREV!')
-        chronologyNavItems.forEach(function (item) {
-          item.classList.remove('current')
-        })
-        chronologyNavItems[curBlockNum - 1].classList.add('current')
-        curBlockNum--
-      }
-    }
+    if (isExistBlock(curBlockNum + 1))
+      nextBlockOffset = chronologyNavBlocks[curBlockNum + 1].getBoundingClientRect().top
+    else
+      nextBlockOffset = null
   }
 
-  
-  scrollPos = st;
+
+
+  if (chronology) {
+    var st = $(this).scrollTop();
+    if (st > scrollPos) {
+      // Скрол вниз
+      if (nextBlockOffset != null)
+        if (nextBlockOffset <= (menuHeight + mobNavHeight) * 2 || pageHeight <= scrollTop + 10) {
+          // alert('next!')
+          chronologyNavItems.forEach(function (item) {
+            item.classList.remove('current')
+          })
+          chronologyNavItems[curBlockNum + 1].classList.add('current')
+          curBlockNum++
+        }
+    } else {
+      // Скрол наверх
+      if (prevBlockOffset != null) {
+        if (curBlockOffset >= (menuHeight + mobNavHeight) * 4) {
+          // alert('PREV!')
+          chronologyNavItems.forEach(function (item) {
+            item.classList.remove('current')
+          })
+          chronologyNavItems[curBlockNum - 1].classList.add('current')
+          curBlockNum--
+        }
+      }
+    }
+    scrollPos = st;
+
+  }
+
 
 
 
