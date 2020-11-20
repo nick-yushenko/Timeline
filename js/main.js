@@ -150,7 +150,7 @@ if (scrollBtn) {
 
 
     $("html, body").animate({
-      scrollTop: scrollHeight + "px"
+      scrollTop: scrollHeight - menuHeight + "px"
     }, {
       duration: 500,
       easing: "swing"
@@ -168,7 +168,7 @@ if (scrollTopBtn && chronology) {
 
 
     $('html, body').animate({
-      scrollTop: scrollHeight + "px"
+      scrollTop: scrollHeight + menuHeight + "px"
     }, {
       duration: 500,
       easing: "swing"
@@ -439,7 +439,7 @@ function fixHeader() {
 
 function unfixHeader() {
   var header = document.querySelector('.header')
-  if (header && !header.classList.contains('fixed')) {
+  if (header && !header.classList.contains('white')) {
     header.classList.remove('fixed')
   }
 }
