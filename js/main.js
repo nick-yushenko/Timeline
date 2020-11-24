@@ -12,6 +12,20 @@ if ('NodeList' in window && !NodeList.prototype.forEach) {
 
 
 
+// Нажатие на кнопку наверх (в подразделе архива)
+const gototop = document.querySelector('.gototop')
+if (gototop) {
+
+  gototop.addEventListener('click', function () {
+    $("html, body").animate({
+      scrollTop: 0 + "px"
+    }, {
+      duration: 500,
+      easing: "swing"
+    });
+  })
+}
+
 // let scrollToChronology = (window.innerHeight <= 1000) ? window.innerHeight : 1000;
 let scrollToChronology
 let scrollHeight
@@ -20,14 +34,7 @@ if (document.querySelector('.hero') && document.querySelector('.about'))
 else
   scrollHeight = null
 
-// if (window.innerWidth <= 768)
-//   scrollToChronology = 700
-// if (window.innerWidth <= 650)
-//   scrollToChronology = 650
-// if (window.innerWidth <= 500)
-//   scrollToChronology = 600
-// if (window.innerWidth <= 425)
-//   scrollToChronology = 550
+
 // Высота шапки 
 var menuHeight = 90
 if (window.innerWidth <= 1600)
@@ -239,6 +246,8 @@ function isExistBlock(blockNum) {
 
 window.addEventListener('scroll', function (e) {
 
+  // скрытие и показ кнопки наверх в подразделе архива 
+
   // сколько нужно проскролить до хронологии
   if (chronology)
     scrollToChronology = chronology.getBoundingClientRect().top
@@ -252,6 +261,13 @@ window.addEventListener('scroll', function (e) {
 
   hideHeroBtn(scrollTop)
 
+  if (gototop) {
+    if (scrollTop <= window.innerHeight) {
+      gototop.style.opacity = '0'
+    } else {
+      gototop.style.opacity = '1'
+    }
+  }
   // Фиксация и смена цвета у шапки
 
   if (scrollTop >= 80) {
