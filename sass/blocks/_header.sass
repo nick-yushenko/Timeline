@@ -1,0 +1,390 @@
+.header 
+  position: fixed
+  top: 0 
+  left: 0 
+  width: 100%
+  border-bottom: 1px solid #f7f7f7
+  z-index: 5
+
+
+  .wrap-fluid
+    display: flex
+    align-items: center
+    height: 90px
+
+  &.fixed 
+    position: fixed
+    background-color: #f7f7f7
+    transition: 0.3s
+    border-bottom: 1px solid $text
+    .header-logo 
+      img 
+        display: none
+        &.dark 
+          display: block
+    .header-nav__item,
+    .header-search span,
+    .header-lang span,
+    .header-share span,
+      color: $text
+      transition: 0.3s
+    .header-nav__item.current::after 
+      background-color: $text
+      transition: 0.3s
+
+    .header-share 
+      display: none
+      &.dark 
+        display: flex
+    .header-search img 
+      display: none
+    .header-search img.dark 
+      display: block 
+    .header-lang img 
+      display: none
+    .header-lang img.dark 
+      display: block 
+  
+
+    .header-burger span 
+      background-color: $text
+      transition: 0.3s
+  
+    .header-lang 
+      &.opened 
+        .droplist 
+          background-color: #fff
+          border: 1px solid $text
+          &-item
+            display: flex
+            align-items: center
+            justify-content: center
+            height: 40px
+            +bold
+            font-size: 16px
+            color: $text
+            background-color: #f7f7f7
+       
+  &-burger 
+    display: none
+  
+  &-logo 
+    margin-right: 30px
+    height: 100%
+    display: flex
+    align-items: center 
+    justify-content: center
+    img 
+      width: 48px
+      height: 48px
+      min-width: 48px
+      min-height: 48px
+      display: block
+      &.dark 
+        display: none
+  
+  &-nav 
+    display: flex
+    justify-content: flex-start
+    align-items: center 
+    margin-right: auto
+    height: 100%
+
+    &__item
+      +reg 
+      color: $text_white
+      margin-right: 40px
+      font-size: 20px
+      display: flex
+      align-items: center 
+      height: 100%
+      transition: 0.3s
+
+
+      &.current
+        font-weight: 600
+        position: relative
+        &::after
+          position: absolute
+          content: ''
+          bottom: -2px 
+          left: 0 
+          width: 100%
+          height: 4px
+          background-color: #fff
+          transition: 0.3s
+  &-search 
+    display: flex
+    align-items: center 
+    justify-content: flex-start
+    cursor: pointer
+    margin-right: 70px
+    height: 100%
+    span 
+      +reg 
+      font-weight: 600
+      font-size: 16px
+      color: $text_white
+      margin-right: 25px
+      transition: 0.3s
+    img 
+      &.dark 
+        display: none
+  &-lang 
+    display: flex
+    align-items: center 
+    justify-content: flex-start
+    margin-right: 70px
+    cursor: pointer
+    height: 100%
+
+    span 
+      +reg 
+      font-weight: 600
+      font-size: 16px
+      color: $text_white
+      margin-right: 25px
+      transition: 0.3s
+      
+    img 
+      margin-top: 4px
+      &.dark 
+        display: none
+    .droplist 
+      display: none
+    &.opened 
+      position: relative
+      .droplist 
+        position: absolute
+        top: 20px
+        right: -10px  
+        display: block
+        width: 100%
+        min-width: 80px
+        border: 1px solid #ffffff
+        &-item
+          display: flex
+          align-items: center
+          justify-content: center
+          height: 40px
+          +reg 
+          font-weight: 600
+          font-size: 16px
+          color: $text_white
+          background-color: #2d2d2d
+          
+         
+  &-share 
+    display: flex
+    align-items: center 
+    justify-content: flex-start
+    height: 100%
+    &.dark 
+      display: none
+    span 
+      +reg 
+      font-weight: 600
+      font-size: 16px
+      color: $text_white
+      margin-right: 25px
+      transition: 0.3s
+
+
+    &__link 
+      margin-right: 25px
+     
+      img 
+        width: 100%
+        height: 100%
+        min-width: 100% 
+        min-height: 100%
+      &:nth-of-type(3)
+        
+        margin-right: 0 !important
+
+
+@media ( min-width: 992px )
+  .header 
+    &.fixed 
+      .header-lang 
+        &.opened 
+          .droplist
+            &-item:hover
+              background-color: #e4e4e4 !important
+
+    &-lang 
+      &.opened 
+        .droplist 
+          &-item:hover
+            background-color: #606060 !important
+@media ( max-width: 1800px )
+  .header 
+    &-nav 
+      &__item
+        margin-right: 30px
+        font-size: 18px
+    &-search 
+      margin-right: 60px
+      span 
+        font-size: 16px
+        margin-right: 20px
+
+    &-lang 
+      margin-right: 60px
+      span 
+        font-size: 16px
+        margin-right: 20px
+
+    &-share 
+      span 
+        font-size: 16px
+        margin-right: 20px
+
+      &__link 
+        margin-right: 20px
+
+@media ( max-width: 1600px )
+  .header 
+    .wrap-fluid 
+      height: 80px
+    &-nav 
+      &__item
+        margin-right: 20px
+        font-size: 18px
+    &-search 
+      margin-right: 45px
+      span 
+        font-size: 16px
+        margin-right: 15px
+
+    &-lang 
+      margin-right: 45px
+      span 
+        font-size: 16px
+        margin-right: 15px
+
+    &-share 
+      span 
+        font-size: 16px
+        margin-right: 15px
+
+      &__link 
+        margin-right: 15px
+
+@media ( max-width: 1500px )
+  .header 
+    .wrap-fluid 
+      height: 70px
+    &-logo 
+      margin-right: 20px
+      img 
+        width: 40px
+        height: 40px
+        min-width: 40px
+        min-height: 40px
+    &-nav 
+      &__item
+        margin-right: 15px
+        font-size: 16px
+    &-search 
+      margin-right: 20px
+      span 
+        font-size: 16px
+        margin-right: 12px
+
+    &-lang 
+      margin-right: 20px
+      span 
+        font-size: 16px
+        margin-right: 12px
+
+    &-share 
+      span 
+        font-size: 16px
+        margin-right: 12px
+
+      &__link 
+        margin-right: 13px
+ 
+
+@media ( max-width: 1350px )
+  .header 
+    &-logo 
+      margin-right: 15px
+    &-nav 
+      &__item 
+        margin-right: 10px
+    &-search 
+      margin-right: 10px
+    &-lang 
+      margin-right: 10px
+
+@media ( max-width: 1300px )
+  .header 
+    .wrap-fluid 
+      height: 60px
+    &-logo 
+      img 
+        width: 36px
+        height: 36px
+        min-width: 36px
+        min-height: 36px
+    &-nav 
+      &__item
+        font-size: 15px
+    &-search 
+      span 
+        font-size: 15px
+        margin-right: 12px
+
+    &-lang 
+      span 
+        font-size: 15px
+        margin-right: 12px
+
+    &-share 
+      span 
+        font-size: 15px
+        margin-right: 12px
+
+      &__link 
+        margin-right: 13px
+   
+@media ( max-width: 1200px )
+  .header 
+    &-search 
+      span 
+        display: none
+
+@media ( max-width: 1024px )
+  .header 
+    &-logo 
+      display: none
+    &-burger 
+      display: block
+      height: 19px
+      display: flex
+      flex-direction: column 
+      justify-content: space-between
+
+      margin-right: 30px
+      cursor: pointer
+      span 
+        height: 3px
+        width: 24px
+        display: block 
+        transition: 0.3s
+        background-color: #f7f7f7
+    &-search 
+      margin-right: auto
+
+    &-nav 
+      display: none
+
+@media ( max-width: 500px )
+  .header 
+    &-lang 
+      margin-right: 0
+    &-share 
+      display: none !important
+  

@@ -1,0 +1,190 @@
+.faq
+
+  &-item 
+    position: relative
+
+    padding-bottom: 40px
+    margin-bottom: 40px
+    border-bottom: 1px solid #d1d1d1
+    .open 
+      position: absolute
+      top: 0 
+      right: 0 
+      width: 40px
+      height: 40px
+      border: 1px solid $text
+      cursor: pointer
+
+      &::after 
+        content: ''
+        position: absolute
+        top: 17px 
+        left: 9px
+        width: 20px
+        height: 4px
+        background-color: $text
+        transition: 0.7s
+
+      &::before 
+        content: ''
+        position: absolute
+        top: 9px 
+        left: 17px
+        width: 4px
+        height: 20px
+        background-color: $text
+        transition: 0.7s
+
+    &__title 
+      +bold 
+      color: $text
+      font-size: 32px
+      line-height: 40px
+      transition: 0.7s
+
+      margin-bottom: 0 
+      width: 950px
+
+
+    &__text 
+      width: 950px
+      height: 0
+      overflow: hidden
+      transition: 0.3s
+
+      p 
+        +reg
+        color: $text_info
+        font-size: 20px
+        line-height: 28px
+        margin: 10px 0
+
+
+    &.opened
+
+      .open 
+        
+        &::before
+          height: 0 !important
+          top: 17px
+          transition: 0.7s
+          transform: rotate(360deg)
+        &::after
+          transform: rotate(360deg)
+          transition: 0.7s 
+      .faq-item
+        &__text 
+          display: block 
+          
+          transition: 0.3s
+        &__title 
+          margin-bottom: 25px
+
+          transition: 0.7s
+
+@media ( max-width: 1800px )
+  .faq
+    &-item 
+      &__title 
+        font-size: 30px
+
+@media ( max-width: 1100px )
+  .faq
+
+    &-item 
+      .open 
+        width: 35px
+        height: 35px
+        &::after 
+          position: absolute
+          top: 15px 
+          left: 8px
+          width: 17px
+          height: 3px
+
+        &::before 
+          top: 8px 
+          left: 15px
+          width: 3px
+          height: 17px
+      &.opened
+        .open 
+          &::before
+            height: 3px !important
+            top: 15px
+      &__title 
+        width: 100%
+        font-size: 28px
+        line-height: 36px
+        padding-right: 50px
+      &__text 
+        width: 100%
+        p 
+          font-size: 18px
+          line-height: 26px
+
+@media ( max-width: 900px )
+  .faq
+
+    &-item 
+      margin-bottom: 30px
+      padding-bottom: 30px
+      &__title 
+        width: 100%
+        font-size: 24px
+        line-height: 32px
+        padding-right: 50px
+      &__text 
+        width: 100%
+        p 
+          font-size: 16px
+          line-height: 24px
+      &.opened
+        .faq-item__title 
+          margin-bottom: 20px
+
+
+@media ( max-width: 600px )
+  .faq
+
+    &-item 
+      padding-bottom: 25px
+      margin-bottom: 25px
+      .open
+        width: 25px
+        height: 25px    
+        &::after
+          top: 11px 
+          left: 6px 
+          width: 11px
+          height: 1px     
+        &::before
+          top: 6px
+          left: 11px
+          width: 1px
+          height: 12px
+
+      &__title 
+        font-size: 20px
+        line-height: 28px
+
+      &__text 
+        p 
+          font-size: 14px
+          line-height: 22px
+      &.opened
+        .open 
+          &::before
+            top: 11px
+            height: 0 !important
+        .faq-item 
+          &__title 
+            margin-bottom: 15px
+
+
+@media ( max-width: 425px )
+  .faq 
+    &-item 
+      &__title 
+        font-size: 18px
+        line-height: 26px

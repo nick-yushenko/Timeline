@@ -1,0 +1,222 @@
+.event 
+  overflow: hidden
+  position: relative
+  &-back 
+    display: flex
+    align-items: center
+    margin-top: 25px
+    cursor: pointer
+    img 
+      transform: rotate(-90deg)
+    span 
+      +bold 
+      font-size: 16px
+      line-height: 20px
+      display: block
+      margin-left: 15px
+  
+  &-text 
+    width: 850px
+    p 
+      +reg 
+      font-size: 20px
+      line-height: 28px
+      color: $text_info
+  &-wrap 
+    width: 850px
+  
+  &-item 
+    position: relative
+    padding-top: 80px
+    padding-bottom: 50px
+    &::before 
+      content: ''
+      position: absolute
+      top: 107px 
+      left: 0 
+      width: 1px
+      height: calc(100% )
+      background-color: $text
+    &::after 
+      content: ''  
+      position: absolute
+      top: 107px 
+      left: 0 
+      width: 50px
+      height: 1px
+      background-color: $text
+    &__title 
+      +bold_opt
+      font-size: 40px
+      line-height: 48px
+      margin-bottom: 25px
+      padding-left: 75px
+
+    &__text
+      padding-left: 75px 
+      p 
+        +reg 
+        font-size: 20px
+        line-height: 28px
+        color: $text_info
+
+  .gototop 
+    position: fixed
+    bottom: 50px 
+    right: 5%
+    display: flex
+    flex-direction: column 
+    align-items: center 
+    justify-content: center
+    transition: 0.5s
+    opacity: 0
+    img 
+      cursor: pointer
+    span 
+      +bold 
+      font-size: 16px
+      line-height: 22px
+      display: block
+      margin-bottom: 25px
+@media ( max-width: 1600px )
+  .event 
+    &-text 
+      p 
+        font-size: 18px
+        line-height: 26px
+    &-item 
+      &__title 
+        +bold 
+        font-size: 38px
+        line-height: 46px
+
+      &__text
+        p 
+          font-size: 18px
+          line-height: 26px
+
+@media ( max-width: 1400px )
+  .event 
+    .gototop 
+      span 
+        font-size: 14px
+        margin-bottom: 15px
+      img 
+        width: 28px
+        height: 28px
+
+@media ( max-width: 1200px )
+  .event 
+    &-text 
+      p 
+        font-size: 16px
+        line-height: 24px
+    &-item 
+      &::before 
+        top: 103px 
+      &::after 
+        top: 103px 
+      &__title 
+        +bold 
+        font-size: 34px
+        line-height: 42px
+
+      &__text
+        p 
+          font-size: 16px
+          line-height: 24px
+
+
+
+@media ( max-width: 1100px )
+  .event 
+    &-back 
+      margin-top: 20px
+    &-text 
+      p 
+        font-size: 16px
+        line-height: 24px
+    &-item 
+      &::before 
+        top: 104px 
+      &::after 
+        top: 104px 
+        width: 25px
+      &__title 
+        +bold 
+        font-size: 32px
+        line-height: 40px
+        padding-left: 45px
+
+      &__text
+        padding-left: 45px
+        p 
+          font-size: 16px
+          line-height: 24px
+
+
+
+@media ( max-width: 1024px )
+  .event 
+    &-text 
+      width: 100%
+    &-wrap 
+      width: 100%
+    .gototop 
+      display: none
+
+@media ( max-width: 768px )
+  .event 
+    &-back 
+      img 
+        width: 25px
+      span 
+        margin-left: 10px
+    &-item 
+      &__title 
+        margin-bottom: 15px
+
+@media ( max-width: 600px )
+  .event 
+    &-item 
+      padding-top: 60px
+      padding-bottom: 30px
+      &::before 
+        display: none
+      &::after 
+        display: none
+      &__title 
+        font-size: 26px
+        line-height: 34px
+        padding-left: 0
+
+      &__text
+        padding-left: 0
+
+      & > .chronology-docs
+        padding-left: 0
+
+@media ( max-width: 500px )
+  .event 
+    &-back 
+      img 
+        width: 20px
+      span 
+        font-size: 14px
+        margin-left: 5px
+    &-text 
+      p 
+        font-size: 14px
+        line-height: 22px
+    &-item 
+      padding-top: 40px
+      padding-bottom: 30px
+      &__title 
+        font-size: 24px
+        line-height: 32px
+        margin-bottom: 10px
+      &__text
+        p 
+          font-size: 14px
+          line-height: 22px
+          

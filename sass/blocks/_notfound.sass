@@ -1,0 +1,148 @@
+.notfound 
+  margin-top: 250px
+
+  &-title 
+    +bold 
+    font-size: 40px
+    line-height: 48px
+    color: $text
+
+    margin-bottom: 40px
+
+
+    span 
+      +bold 
+      font-size: 56px
+      line-height: 64px
+
+
+  &-subtitle 
+    +reg 
+    font-weight: 400
+    font-size: 32px
+    line-height: 40px
+    color: $text_info
+    margin-bottom: 80px
+    display: block
+  
+  &-back 
+    display: flex
+    align-items: center 
+    justify-content: flex-start
+
+    img
+      transform: rotate(-90deg)
+
+    span 
+      +bold 
+      font-weight: 600
+      color: $text
+      font-size: 16px
+      line-height: 20px
+      margin-left: 15px
+      display: block
+
+@media ( max-width: 1800px )
+  .notfound
+    margin-top: 230px
+    &-title
+      font-size: 46px
+      line-height: 52px
+
+      span 
+        font-size: 54px
+        line-height: 60px
+
+@media ( max-width: 1600px )
+  .notfound
+    margin-top: 20vh
+    &-title 
+      font-size: 44px
+      line-height: 50px
+      span 
+        font-size: 50px
+        line-height: 48px
+
+@media ( max-width: 1400px )
+  .notfound 
+    margin-top: 20vh
+
+@media ( max-width: 1250px )
+  .notfound 
+    margin-top: 15vh
+
+    &-title 
+      font-size: 40px
+      line-height: 46px
+      span 
+        font-size: 44px
+        line-height: 52px
+    &-subtitle 
+      font-size: 30px
+      line-height: 38px
+
+@media ( max-width: 1100px )
+  .notfound 
+    &-title 
+      font-size: 38px
+      line-height: 44px
+      margin-bottom: 30px
+      span 
+        font-size: 42px
+        line-height: 50px
+    &-subtitle 
+      font-size: 28px
+      line-height: 36px
+
+@media ( max-width: 768px )
+  .notfound
+    &-title 
+      margin-bottom: 20px
+    &-back 
+      img 
+        width: 25px
+
+
+@media ( max-width: 600px )
+  .notfound 
+    margin-top: 160px
+    &-title 
+      font-size: 32px
+      line-height: 38px
+      margin-bottom: 15px
+      span 
+        font-size: 38px
+        line-height: 44px
+    &-subtitle 
+      font-size: 20px
+      line-height: 28px
+      margin-bottom: 60px
+
+@media ( max-width: 500px )
+  .notfound 
+    margin-top: 140px
+    &-title 
+      font-size: 26px
+      line-height: 32px
+      span 
+        font-size: 24px
+        line-height: 30px
+    &-subtitle 
+      font-size: 18px
+      line-height: 26px
+    &-back 
+      img 
+        width: 20px
+
+@media ( max-width: 425px )
+  .notfound 
+    margin-top: 100px
+    &-title 
+      font-size: 24px
+      line-height: 30px
+      span 
+        font-size: 22px
+        line-height: 28px
+    &-subtitle 
+      font-size: 16px
+      line-height: 24px
