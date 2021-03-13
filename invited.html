@@ -5,15 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="css/style.min.css">
-
   <title>Визитка врача</title>
 </head>
 
+
 <body>
-
-
 
 
   <!-- Выбор города -->
@@ -76,7 +73,7 @@
       </div>
       <form role="login" method="get" class="modal-login-form" action="#" id="loginForm">
         <div class="input-block">
-          <span class="input-block__hint">Ваш E-mail</span>
+          <span class="input-block__hint">Ваш  E-mail</span>
           <input class="input-block__field field" type="email" name="email" placeholder="mymail@mail.com">
         </div>
         <div class="input-block password">
@@ -235,8 +232,7 @@
           class="login-submit form-submit disabled modal-register-submit btn">
         <span class="modal-register-text">
           Регистрируясь, вы подтверждаете, что вам 18 или более лет и вы соглашаетесь c
-          <a href="#" target="_blank" class="primary">правилами использования </a> и <a href="privacy.html"
-            target="_blank" class="primary">политикой
+          <a href="#" class="primary">правилами использования </a> и <a href="privacy.html" class="primary">политикой
             конфиденциальности</a>.
         </span>
       </form>
@@ -340,21 +336,6 @@
       <span class="modal-reset-text">Ваше сообщение отправлено. Наши специалисты ответят Вам в течение нескольких
         часов.</span>
       <div class="btn modal-notify-btn ">Закрыть</div>
-
-    </div>
-
-  </div>
-
-  <!-- Профиль опубликован  -->
-  <div class="modal modal-notify  ">
-
-    <div class="modal-wrap modal-notify-wrap">
-
-      <h2 class="modal-title"> Профиль опубликован</h2>
-
-      <span class="modal-reset-text">Поздравляем! Вы успешно опубликовали свой профиль. Теперь он доступен для просмотра
-        посетителями сайта.</span>
-      <div class="btn modal-notify-btn ">Продолжить</div>
 
     </div>
 
@@ -510,99 +491,100 @@
 
     </div>
   </div>
-
-  <header class="header header_main ">
+  <header class="header header_login ">
     <div class="wrap content-flex">
-      <a href="index.html" class="logo">
+      <div class="logo">
         <img src="img/icons/logo.svg" alt="Визитка Врача">
-      </a>
+      </div>
       <div class="city toModal js-toChooseCity">
         <img src="img/icons/city-icon.svg" alt="">
         <span class="name">Москва</span>
       </div>
+      <form role="search" method="get" class="header-search search-form " action="#">
+        <label>
+          <span class="screen-reader-text">
+          </span>
+          <input type="text" class="search-field field header-search__field " placeholder="Поиск" maxlength="70" />
+
+
+        </label>
+        <button type="submit" class="header-search__submit">
+          <img src="img/icons/search-icon_white.svg" alt="" class="header-search__icon">
+        </button>
+      </form>
+
       <div class="buttons content-flex">
-        <div class="signup js-toRegister">
-          Регистрация
+        <div class="header-mini ">
+          Муратов. А
         </div>
-        <div class="login btn js-toLogin">
-          Вход
-        </div>
+        <a href="invited.html" class="btn header-invite">
+          Пригласить
+        </a>
 
       </div>
+
 
     </div>
   </header>
 
-  <main class="main">
-    <section class="hero">
-      <img src="img/main/hero-img.png" alt="" class="hero-bg">
+
+  <main class="main ">
+    <section class="section invite">
+
       <div class="wrap">
-        <h1 class="hero-title">Поможем найти вашего врача</h1>
+        <div class="section-nav">
+          <a href="#"> Главная </a>
+          <img src="img/icons/arrow-icon.svg" alt="">
+          <a href="#"> Личный кабинет </a>
+          <img src="img/icons/arrow-icon.svg" alt="">
+          <a href="#"> Настройки </a>
+        </div>
 
-        <form role="search" method="get" class="hero-search search-form " action="#">
-          <label>
-            <span class="screen-reader-text">
-            </span>
-            <img src="img/icons/search-icon.svg" alt="" class="hero-search__icon">
-            <input type="text" class="search-field field hero-search__field " placeholder="Имя врача или специальность"
-              maxlength="70" />
+        <div class="invite-wrap">
+          <h2 class="section-title">Пригласите коллег</h2>
 
-          </label>
-          <input type="submit" class="search-submit btn" value="Найти" />
-        </form>
-      </div>
-    </section>
-    <section class="recommend">
-      <div class="wrap">
+          <div class="invite-card">
+            <div class="invite-card__head">
+              <span class="invite-card__title">Ваш код приглашения</span>
+              <span class="invite-card__count">осталось 3 приглашения</span>
+            </div>
+            <div class="invite-card__code">
+              <span>1111 – 2222 – 3333 – 4444</span>
+            </div>
+            <div class="invite-card__info">
+              <div class="invite-card__text">
+                <p>
+                  Этот код вы&nbsp;можете отправить свои коллегам для приглашения их&nbsp;на&nbsp;сайт. Учитите, что
+                  по&nbsp;коду может зергистрироваться максимум 5&nbsp;врачей.
+                </p>
+                <p>
+                  Отправьте приглашение с&nbsp;кодом себе на&nbsp;WhatsUp и&nbsp;перешлите его коллегам, которых хотите
+                  пригласить.
+                </p>
+              </div>
 
-        <div class="recommend-head">
-          <h2 class="recommend-title">Рекомендуем в </h2>
-          <div class="recommend-city toModal js-toChooseCity">
-            <img src="img/icons/city-icon.svg" alt="">
-            <span class="name">Москва</span>
+              <form action="#" class="invite-card__phone" id="inviteForm">
+                <div class="input-block phone">
+                  <input type="phone" placeholder="(123) 456-78-55" name="phone" minlength="15" maxlength="15"
+                    class="input-block__field phone field">
+                  <input type="text" readonly class="phone-code " value="+7">
+
+                </div>
+                <input type="submit" value="Отправить на WhatsUp"
+                  class="btn-light form-submit invite-card__btn disabled">
+              </form>
+              <div class="invite-card__text">
+                <p>
+                  *Отправляя код, вы&nbsp;подтверждаете наличие у&nbsp;коллеги высшего или среднего медицинского
+                  образования.
+                </p>
+
+              </div>
+            </div>
           </div>
-          <a href="catalog.html" class="recommend-more">Все врачи</a>
-        </div>
-        <div class="recommend-wrap content-flex">
-
-          <a href="#" class="recommend-item">
-            <div class="recommend-item__img">
-              <img src="img/main/recommend-doctor-1.png" alt="">
-            </div>
-            <span class="recommend-item__specialisation">Стоматолог</span>
-            <span class="recommend-item__name">Муратов Александр Викторович</span>
-          </a>
-          <a href="#" class="recommend-item">
-            <div class="recommend-item__img">
-              <img src="img/main/recommend-doctor-2.png" alt="">
-            </div>
-            <span class="recommend-item__specialisation">Аллерголог</span>
-            <span class="recommend-item__name">Игнатова Антонина Валерьевна</span>
-          </a>
-          <a href="#" class="recommend-item">
-            <div class="recommend-item__img">
-              <img src="img/main/recommend-doctor-3.png" alt="">
-            </div>
-            <span class="recommend-item__specialisation">ЛОР</span>
-            <span class="recommend-item__name">Потапенко Анатолий Васильевич</span>
-          </a>
-          <a href="#" class="recommend-item">
-            <div class="recommend-item__img">
-              <img src="img/main/recommend-doctor-4.png" alt="">
-            </div>
-            <span class="recommend-item__specialisation">Гастроэнтеролог</span>
-            <span class="recommend-item__name">Шевченоко Наталья Юрьевна</span>
-          </a>
-          <a href="#" class="recommend-item">
-            <div class="recommend-item__img">
-              <img src="img/main/recommend-doctor-5.png" alt="">
-            </div>
-            <span class="recommend-item__specialisation">Детский стоматолог</span>
-            <span class="recommend-item__name">Исхандер Иоланта Сергеевна</span>
-          </a>
-
         </div>
       </div>
+
     </section>
   </main>
 
@@ -623,14 +605,11 @@
 
     </div>
   </footer>
-
-
   <script src="js/jquery.js"></script>
   <script src="js/droplist.js"></script>
   <script src="js/jquery.mask.min.js"></script>
   <script src="js/jquery.validate.min.js"></script>
   <script src="js/main.js"></script>
-
 </body>
 
 </html>

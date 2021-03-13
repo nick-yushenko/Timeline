@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <title>Визитка врача</title>
+</head>
+
+<body>
+
+    <!-- Выбор города -->
+    <div class="modal modal-city">
+
+      <div class="modal-wrap modal-city-wrap">
+        <h2 class="modal-title">Выберите город</h2>
+  
+        <div role="search" method="get" class="modal-city-search search-form" action="#">
+          <label>
+            <span class="screen-reader-text">
+            </span>
+            <input type="text" class="search-field field modal-city-search__field js-searchInput" placeholder="Ваш город"
+              id="modalCitySearchField" data-listWrapClass="modal-city-list" />
+  
+          </label>
+          <button type="submit" class="search-submit btn modal-city-search__submit">
+            <img src="img/icons/search-icon_white.svg" alt="" class="modal-city-search__icon">
+          </button>
+        </div>
+  
+        <ul class="modal-city-list">
+          <li class="modal-city-item empty">Ничего не найдено</li>
+  
+          <li class="modal-city-item" onclick="chooseCity(event)">Екатеринбург</li>
+          <li class="modal-city-item" onclick="chooseCity(event)">Казань</li>
+          <li class="modal-city-item" onclick="chooseCity(event)">Краснодар</li>
+          <li class="modal-city-item current" onclick="chooseCity(event)">Москва</li>
+          <li class="modal-city-item" onclick="chooseCity(event)">Нижний Новгород</li>
+          <li class="modal-city-item" onclick="chooseCity(event)">Новосибирск</liv>
+          <li class="modal-city-item" onclick="chooseCity(event)">Ростов-на-Дону</liv>
+          <li class="modal-city-item" onclick="chooseCity(event)">Самара</liv>
+          <li class="modal-city-item" onclick="chooseCity(event)">Санкт-Петербург</liv>
+          <li class="modal-city-item" onclick="chooseCity(event)">Уфа</liv>
+          <li class="modal-city-item" onclick="chooseCity(event)">Челябинск</liv>
+          <li class="modal-city-item" onclick="chooseCity(event)">Екатеринбург</li>
+          <li class="modal-city-item" onclick="chooseCity(event)">Казань</li>
+          <li class="modal-city-item" onclick="chooseCity(event)">Краснодар</li>
+          <li class="modal-city-item" onclick="chooseCity(event)">Нижний Новгород</li>
+          <li class="modal-city-item" onclick="chooseCity(event)">Новосибирск</liv>
+          <li class="modal-city-item" onclick="chooseCity(event)">Ростов-на-Дону</liv>
+          <li class="modal-city-item" onclick="chooseCity(event)">Самара</liv>
+          <li class="modal-city-item" onclick="chooseCity(event)">Санкт-Петербург</liv>
+          <li class="modal-city-item" onclick="chooseCity(event)">Уфа</liv>
+          <li class="modal-city-item" onclick="chooseCity(event)">Челябинск</liv>
+  
+        </ul>
+  
+  
+      </div>
+    </div>
+
+
+  <header class="header header_main ">
+    <div class="wrap content-flex">
+      <a href="index.html" class="logo">
+        <img src="img/icons/logo.svg" alt="Визитка Врача">
+      </a>
+      <div class="city toModal js-toChooseCity">
+        <img src="img/icons/city-icon.svg" alt="">
+        <span class="name">Москва</span>
+      </div>
+      <div class="buttons content-flex">
+        <div class="signup js-toRegister">
+          Регистрация
+        </div>
+        <div class="login btn js-toLogin">
+          Вход
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="section notfound">
+      <div class="wrap content-flex">
+        <div class="notfound-info">
+          <h2 class="notfound-title">К сожалению, такой страницы нет</h2>
+          <span class="notfound-text">Но есть много других интересных страниц, которые помогут найти то, что Вы искали. Попробуйте начать с начала.</span>
+          <a href="index.html" class="btn notfound-btn">Вернуться на главную</a>
+        </div>
+        <div class="notfound-right">
+          <img src="img/icons/notfound-icon.svg" alt="">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap content-flex between">
+      <div class="footer-item">
+        © AО “Визитка врача”, 2021.
+      </div>
+
+      <div class="footer-item">
+        <span class="js-toSupport js-supportEmpty link"> Написать в тех. поддержку</span>
+        <a href="mailto:Info@mail.com" class="link">Info@mail.com</a>
+      </div>
+
+      <a href="privacy.html" target="_blank" class="footer-item link">
+        Политика обработки информации
+      </a>
+
+    </div>
+  </footer>
+
+
+  <script src="js/jquery.js"></script>
+  <script src="js/droplist.js"></script>
+  <script src="js/jquery.mask.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

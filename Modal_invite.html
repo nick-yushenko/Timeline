@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <title>Визитка врача</title>
+</head>
+
+<body>
+
+
+
+
+<!-- Выбор города -->
+<div class="modal modal-city">
+
+  <div class="modal-wrap modal-city-wrap">
+    <h2 class="modal-title">Выберите город</h2>
+
+    <form role="search" method="get" class="modal-city-search search-form" action="#">
+      <label>
+        <span class="screen-reader-text">
+        </span>
+        <input type="text" class="search-field field modal-city-search__field" placeholder="Ваш город"
+          id="modalCitySearchField" />
+
+      </label>
+      <button type="submit" class="search-submit btn modal-city-search__submit">
+        <img src="img/icons/search-icon_white.svg" alt="" class="modal-city-search__icon">
+      </button>
+    </form>
+
+    <ul class="modal-city-list">
+      <li class="modal-city-item" onclick="chooseCity(event)">Екатеринбург</li>
+      <li class="modal-city-item" onclick="chooseCity(event)">Казань</li>
+      <li class="modal-city-item" onclick="chooseCity(event)">Краснодар</li>
+      <li class="modal-city-item current" onclick="chooseCity(event)">Москва</li>
+      <li class="modal-city-item" onclick="chooseCity(event)">Нижний Новгород</li>
+      <li class="modal-city-item" onclick="chooseCity(event)">Новосибирск</liv>
+      <li class="modal-city-item" onclick="chooseCity(event)">Ростов-на-Дону</liv>
+      <li class="modal-city-item" onclick="chooseCity(event)">Самара</liv>
+      <li class="modal-city-item" onclick="chooseCity(event)">Санкт-Петербург</liv>
+      <li class="modal-city-item" onclick="chooseCity(event)">Уфа</liv>
+      <li class="modal-city-item" onclick="chooseCity(event)">Челябинск</liv>
+      <li class="modal-city-item" onclick="chooseCity(event)">Екатеринбург</li>
+      <li class="modal-city-item" onclick="chooseCity(event)">Казань</li>
+      <li class="modal-city-item" onclick="chooseCity(event)">Краснодар</li>
+      <li class="modal-city-item" onclick="chooseCity(event)">Нижний Новгород</li>
+      <li class="modal-city-item" onclick="chooseCity(event)">Новосибирск</liv>
+      <li class="modal-city-item" onclick="chooseCity(event)">Ростов-на-Дону</liv>
+      <li class="modal-city-item" onclick="chooseCity(event)">Самара</liv>
+      <li class="modal-city-item" onclick="chooseCity(event)">Санкт-Петербург</liv>
+      <li class="modal-city-item" onclick="chooseCity(event)">Уфа</liv>
+      <li class="modal-city-item" onclick="chooseCity(event)">Челябинск</liv>
+
+    </ul>
+
+
+  </div>
+</div>
+
+<!-- Вход (+) -->
+<div class="modal modal-login ">
+
+  <div class="modal-wrap modal-login-wrap">
+    <h2 class="modal-title">Вход</h2>
+    <div class="modal-close">
+      <img src="img/icons/close-icon.svg" alt="">
+    </div>
+    <form role="login" method="get" class="modal-login-form" action="#" id="loginForm">
+      <div class="input-block">
+        <span class="input-block__hint">Ваш контактный E-mail</span>
+        <input class="input-block__field field" type="email" name="email" placeholder="mymail@mail.com">
+      </div>
+      <div class="input-block password">
+        <span class="input-block__hint">Пароль</span>
+        <input class="input-block__field field pass" type="password" name="password"
+          placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+        <div class="input-block__hidepassword">
+          <img src="img/icons/password-off-icon.svg" alt="" class="input-block__hidepassword-icon active">
+          <img src="img/icons/password-on-icon.svg" alt="" class="input-block__hidepassword-icon ">
+        </div>
+      </div>
+
+      <span class="modal-login-forgot js-toReset ">Забыли пароль?</span>
+
+      <input type="submit" value="Войти" class="login-submit form-submit modal-login-submit btn disabled">
+    </form>
+
+  </div>
+  <div class="modal-wrap modal-login-info">
+    <span class="modal-login-info__text">Я еще не зарегистрирован на сайте</span>
+    <span class="modal-login-info__link js-toRegister">Зарегистрироваться</span>
+
+  </div>
+</div>
+
+<!-- Сброс пароля (+) -->
+<div class="modal modal-reset ">
+
+  <div class="modal-wrap modal-reset-wrap">
+
+    <h2 class="modal-title"> <img src="img/icons/back-icon.svg" alt="" class="modal-back js-toLogin"> Сброс пароля
+    </h2>
+    <div class="modal-close">
+      <img src="img/icons/close-icon.svg" alt="">
+    </div>
+    <form role="reset" method="get" class="modal-reset-form" action="#" id="resetPasswordForm">
+      <span class="modal-reset-text">Введите электронную почту, на которую был зарегистрирован аккаунт.</span>
+
+      <div class="input-block">
+        <span class="input-block__hint"> E-mail</span>
+        <input class="input-block__field field" type="email" name="email" id="" placeholder="mymail@mail.com">
+      </div>
+
+
+      <input type="submit" value="Сбросить пароль" class="login-submit form-submit disabled modal-reset-submit btn">
+    </form>
+
+
+
+  </div>
+
+</div>
+
+<!-- Пароль сброшен -->
+<div class="modal modal-notify ">
+
+  <div class="modal-wrap modal-notify-wrap">
+
+    <h2 class="modal-title"> Пароль сброшен</h2>
+
+    <span class="modal-reset-text">На вашу почту было отправлено письмо с инструкциями по сбросу пароля. Перейдите
+      по ссылке в этом письме, чтобы продолжить процесс и создать новый пароль.</span>
+
+    <div class="btn  modal-notify-btn ">На главную</div>
+  </div>
+
+</div>
+
+<!-- Подтвердите почту -->
+<div class="modal modal-notify ">
+
+  <div class="modal-wrap modal-notify-wrap">
+    <div class="modal-close">
+      <img src="img/icons/close-icon.svg" alt="">
+    </div>
+    <h2 class="modal-title"> Подтвердите e-mail</h2>
+
+    <span class="modal-reset-text">На указанный Вами e-mail было отправлено письмо с подтверждением. Проверьте
+      электронную почту и перейдите по ссылке, указанной в письме.</span>
+    <div class="btn modal-notify-btn ">Понятно</div>
+
+  </div>
+
+</div>
+<!-- Регистрация. этап 1 (+) -->
+<div class="modal modal-code  ">
+
+  <div class="modal-wrap modal-code-wrap">
+    <h2 class="modal-title">Регистрация</h2>
+    <div class="modal-close">
+      <img src="img/icons/close-icon.svg" alt="">
+    </div>
+    <form method="get" class="modal-code-form" action="#" id="RegistrationCode">
+
+      <span class="modal-code-text">Для регистрации на сайте введите код приглашения.</span>
+
+      <div class="input-block input-block_code ">
+        <!-- в это поле перезаписывается код без знаков тире. На это поле накладывается валидация  -->
+        <input class="input-block__field field js-codeTrue" type="hidden" minlength="16" maxlength="16" id=""
+          name="code">
+
+        <!-- для вывода ошибки полям добавить класс invalid  (всем, кроме скрытого поля) -->
+        <input class="input-block__field field code-field" type="text" maxlength="4" id="" placeholder="1111">
+        <img src="img/icons/line-icon.svg" alt="" class="modal-code-line">
+        <input class="input-block__field field code-field" type="text" maxlength="4" id="" placeholder="1111">
+        <img src="img/icons/line-icon.svg" alt="" class="modal-code-line">
+        <input class="input-block__field field code-field" type="text" maxlength="4" id="" placeholder="1111">
+        <img src="img/icons/line-icon.svg" alt="" class="modal-code-line">
+        <input class="input-block__field field code-field" type="text" maxlength="4" id="" placeholder="1111">
+
+      </div>
+      <!--  СООБЩЕНИЕ ОБ ОШИБКЕ -->
+      <!-- <span class="input-block__invalid">Этот код уже был использован максимальное количество раз </span> -->
+
+      <input type="submit" value="Продолжить" class="login-submit modal-code-submit btn js-sendCode disabled">
+      <span class="modal-code-nocode js-toNocode ">У меня нет кода</span>
+
+    </form>
+
+  </div>
+</div>
+<!-- Регистрация. этап 2 (+) -->
+<div class="modal modal-register  ">
+
+  <div class="modal-wrap modal-register-wrap ">
+    <h2 class="modal-title">Регистрация</h2>
+    <div class="modal-close">
+      <img src="img/icons/close-icon.svg" alt="">
+    </div>
+    <form role="register" method="get" class="modal-register-form" action="#" id="registerForm">
+      <div class="input-block">
+        <span class="input-block__hint">Ваш контактный E-mail</span>
+        <input class="input-block__field field" type="email" name="email" placeholder="mymail@mail.com">
+      </div>
+      <div class="input-block password">
+        <span class="input-block__hint">Введите пароль</span>
+        <input class="input-block__field field pass" type="password" name="password" id=""
+          placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+        <div class="input-block__hidepassword">
+          <img src="img/icons/password-off-icon.svg" alt="" class="input-block__hidepassword-icon active">
+          <img src="img/icons/password-on-icon.svg" alt="" class="input-block__hidepassword-icon ">
+        </div>
+      </div>
+
+      <div class="input-block password">
+        <span class="input-block__hint">Повторите пароль</span>
+        <input class="input-block__field field pass" type="password" name="confirmPassword" id=""
+          placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+        <div class="input-block__hidepassword">
+          <img src="img/icons/password-off-icon.svg" alt="" class="input-block__hidepassword-icon active">
+          <img src="img/icons/password-on-icon.svg" alt="" class="input-block__hidepassword-icon ">
+        </div>
+      </div>
+
+      <input type="submit" value="Зарегистрироваться"
+        class="login-submit form-submit disabled modal-register-submit btn">
+      <span class="modal-register-text">
+        Регистрируясь, вы подтверждаете, что вам 18 или более лет и вы соглашаетесь c
+        <a href="#" class="primary">правилами использования </a> и <a href="privacy.html" class="primary">политикой
+          конфиденциальности</a>.
+      </span>
+    </form>
+
+  </div>
+
+</div>
+<!-- У меня нет кода -->
+<div class="modal modal-nocode ">
+
+  <div class="modal-wrap modal-nocode-wrap">
+
+    <h2 class="modal-title"> <img src="img/icons/back-icon.svg" alt="" class="modal-back js-toRegister"> Нет кода
+    </h2>
+
+    <span class="modal-nocode-text">
+      В настоящее время регистрация в системе визиткаврача.ру возможна только по приглашению от коллеги. Если у Вас
+      его нет, попросите одного из коллег, зарегистрированных в системе, отправить Вам приглашение.
+    </span>
+
+    <span class="modal-nocode-text">
+      Если у Вас нет возможности получить код приглашения, обратитесь к нам в службу поддержки.
+    </span>
+
+
+    <div class="btn-light js-toSupport">Служба поддержки</div>
+    <div class="modal-nocode-close btn">Закрыть</div>
+
+
+  </div>
+
+</div>
+
+<!-- Служба поддержки (+) -->
+<div class="modal modal-support ">
+
+  <div class="modal-wrap modal-support-wrap">
+
+    <h2 class="modal-title"> <img src="img/icons/back-icon.svg" alt="" class="modal-back js-toNocode"> Служба
+      поддержки
+    </h2>
+    <div class="modal-close">
+      <img src="img/icons/close-icon.svg" alt="">
+    </div>
+    <span class="modal-nocode-text">
+      Уважаемый коллега, наша система предназначена для максимально комфортного и безопасного обмена информацией между
+      врачами и пациентами. Если у Вас есть вопросы или комментарии, напишите, пожалуйста, нам с указанием ФИО,
+      специальности и темы обращения.
+    </span>
+
+    <form method="get" class="modal-support-form" action="#" id="supportForm">
+
+      <div class="input-block">
+        <span class="input-block__hint">Ваш контактный E-mail</span>
+        <input class="input-block__field field" type="email" name="email" placeholder="mymail@mail.com">
+      </div>
+      <div class="input-block">
+        <span class="input-block__hint">Как к Вам обращаться</span>
+        <input class="input-block__field field" type="text" name="userName" id="nameTemp" placeholder="Иванов Иван">
+      </div>
+
+      <div class="input-block select-wrap">
+
+        <div class="select">
+          <div class="select__head">
+            <input type="text" name="theme" autocomplete="off" readonly placeholder="Тема обращения" class="field">
+          </div>
+
+
+          <ul class="select__list" style="display: none;">
+            <li class="select__item">Что-то </li>
+            <li class="select__item">Что-то </li>
+            <li class="select__item">Что-то </li>
+            <li class="select__item">Что-то </li>
+            <li class="select__item">Что-то </li>
+            <li class="select__item">Что-то </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="input-block">
+        <textarea class="input-block__field textarea field" name="message" id="" cols="30" rows="30"
+          placeholder="Напишите нам сообщение"></textarea>
+      </div>
+
+      <input type="submit" value="Отправить" class="login-submit form-submit modal-support-submit btn disabled">
+    </form>
+
+  </div>
+
+</div>
+
+<!-- Сообщение отправлено -->
+<div class="modal modal-notify  ">
+
+  <div class="modal-wrap modal-notify-wrap">
+
+    <h2 class="modal-title"> Сообщение отправлено</h2>
+
+    <span class="modal-reset-text">Ваше сообщение отправлено. Наши специалисты ответят Вам в течение нескольких
+      часов.</span>
+    <div class="btn modal-notify-btn ">Закрыть</div>
+
+  </div>
+
+</div>
+
+<!-- Ркомендовать -->
+<div class="modal modal-recommend ">
+  <div class="modal-wrap modal-notify-wrap">
+    <div class="modal-close">
+      <img src="img/icons/close-icon.svg" alt="">
+    </div>
+    <h2 class="modal-title"> Ркомендовать</h2>
+    <span class="modal-reset-text">
+      Спасибо, что рекомендуете врача. Таким образом вы&nbsp;подтверждаете профессионализм коллеги и&nbsp;его
+      гарантии.
+    </span>
+    <span class="modal-reset-text">
+      Отменить рекомендацию можно в&nbsp;разделе &laquo;Мои коллеги&raquo; в&nbsp;личном кабинете.
+    </span>
+    <div class="btn modal-notify-btn ">Ркомендовать</div>
+  </div>
+</div>
+
+<!-- Отправка жалобы  -->
+<div class="modal modal-complain  ">
+  <div class="modal-wrap modal-complain-wrap">
+    <h2 class="modal-title">
+      Неверная информация
+    </h2>
+    <div class="modal-close">
+      <img src="img/icons/close-icon.svg" alt="">
+    </div>
+    <span class="modal-complain__text">Если вы считаете что в профиле</span>
+    <span class="modal-complain__account">Муратов Александр Виктрович</span>
+    <span class="modal-complain__text">
+      указана неверная информация, напишите нам об этом. Мы проведем проверку на соответствие с указанной информацией.
+    </span>
+
+    <form method="get" class="modal-support-form" action="#" id="complainForm">
+
+      <div class="input-block select-wrap">
+
+        <div class="select">
+          <div class="select__head">
+            <input type="text" name="mistake" autocomplete="off" readonly placeholder="Где допущена ошибка?"
+              class="field">
+          </div>
+
+
+          <ul class="select__list" style="display: none;">
+            <li class="select__item">Что-то </li>
+            <li class="select__item">Что-то </li>
+            <li class="select__item">Что-то </li>
+            <li class="select__item">Что-то </li>
+            <li class="select__item">Что-то </li>
+            <li class="select__item">Что-то </li>
+          </ul>
+        </div>
+      </div>
+      <div class="input-block">
+        <textarea class="input-block__field textarea field" name="message" id="" cols="30" rows="30"
+          placeholder="Напишите нам сообщение"></textarea>
+      </div>
+      <input type="submit" value="Отправить" class="login-submit form-submit  modal-support-submit btn disabled">
+    </form>
+  </div>
+</div>
+
+<!-- Пригласить коллег (+) -->
+<div class="modal modal-invite active">
+
+  <div class="modal-wrap modal-invite-wrap">
+    <h2 class="modal-title">
+      Пригласить коллег
+    </h2>
+    <div class="modal-close">
+      <img src="img/icons/close-icon.svg" alt="">
+    </div>
+    <div class="invite-card">
+
+      <div class="invite-card__head">
+        <span class="invite-card__title">Ваш код приглашения</span>
+        <span class="invite-card__count">осталось 3 приглашения</span>
+      </div>
+      <div class="invite-card__code">
+        <span>1111 – 2222 – 3333 – 4444</span>
+      </div>
+      <div class="invite-card__info">
+        <div class="invite-card__text">
+          <p>
+            Этот код вы&nbsp;можете отправить свои коллегам для приглашения их&nbsp;на&nbsp;сайт. Учитите, что
+            по&nbsp;коду может зергистрироваться максимум 5&nbsp;врачей.
+          </p>
+          <p>
+            Отправьте приглашение с&nbsp;кодом себе на&nbsp;WhatsUp и&nbsp;перешлите его коллегам, которых хотите
+            пригласить.
+          </p>
+        </div>
+
+        <form action="#" class="invite-card__phone" id="inviteModalForm">
+          <div class="input-block phone">
+            <input type="phone" placeholder="(123) 456-78-55" name="phone" minlength="15" maxlength="15"
+              class="input-block__field phone field">
+            <input type="text" readonly class="phone-code " value="+7">
+
+          </div>
+          <input type="submit" value="Отправить на WhatsUp" class="btn-light form-submit invite-card__btn disabled">
+        </form>
+        <div class="invite-card__text">
+          <p>
+            *Отправляя код, вы&nbsp;подтверждаете наличие у&nbsp;коллеги высшего или среднего медицинского
+            образования.
+          </p>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Данные сохранены -->
+<div class="modal modal-saved  ">
+  <div class="modal-wrap modal-nocode-wrap">
+    <h2 class="modal-title"> Данные сохранены
+    </h2>
+
+    <span class="modal-nocode-text">
+      Черновик профиля сохранен. Пока он не виден посетителям сайта. Ваш профиль станет доступным для прсмотра только
+      после публикации. Это можно сделать в любое время в личном кабинете.
+    </span>
+
+    <div class="modal-saved-close btn">Продолжить</div>
+  </div>
+</div>
+
+<!-- Вы забыли добавить фотографию -->
+<div class="modal modal-setavatar ">
+  <div class="modal-wrap modal-nocode-wrap">
+    <h2 class="modal-title"> Загрузить фотографию
+    </h2>
+
+    <span class="modal-nocode-text">
+      Вы забыли загрузить фоторафию профиля. Настоятельно рекомендуем Вам это сделать. Клиентам или коллегам будет
+      сложно найти или выбрать Вас без фотографии.
+    </span>
+
+    <input type="file" id="modalPhoto" class="modal-setavatar__file">
+    <label for="modalPhoto" class="modal-setavatar__label btn">
+      Загрузить фотографию
+    </label>
+    <span class="modal-setavatar__text  modal-setavatar-close">Не загружать</span>
+
+  </div>
+</div>
+
+  <header class="header header_main ">
+    <div class="wrap content-flex">
+      <a href="index.html" class="logo">
+        <img src="img/icons/logo.svg" alt="Визитка Врача">
+      </a>
+      <div class="city toModal js-toChooseCity">
+        <img src="img/icons/city-icon.svg" alt="">
+        <span class="name">Москва</span>
+      </div>
+      <div class="buttons content-flex">
+        <div class="signup js-toRegister">
+          Регистрация
+        </div>
+        <div class="login btn js-toLogin">
+          Вход
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <img src="img/main/hero-img.png" alt="" class="hero-bg">
+      <div class="wrap">
+        <h1 class="hero-title">Поможем найти вашего врача</h1>
+
+        <form role="search" method="get" class="hero-search search-form " action="#">
+          <label>
+            <span class="screen-reader-text">
+            </span>
+            <img src="img/icons/search-icon.svg" alt="" class="hero-search__icon">
+            <input type="text" class="search-field field hero-search__field "
+              placeholder="Имя врача или специальность" />
+
+          </label>
+          <input type="submit" class="search-submit btn" value="Найти" />
+        </form>
+      </div>
+    </section>
+    <section class="recommend">
+      <div class="wrap">
+
+        <div class="recommend-head">
+          <h2 class="recommend-title">Рекомендуем в </h2>
+          <div class="recommend-city toModal js-toChooseCity">
+            <img src="img/icons/city-icon.svg" alt="">
+            <span class="name">Москва</span>
+          </div>
+          <a href="catalog.html" class="recommend-more">Все врачи</a>
+        </div>
+        <div class="recommend-wrap content-flex">
+
+          <a href="#" class="recommend-item">
+            <div class="recommend-item__img">
+              <img src="img/main/recommend-doctor-1.png" alt="">
+            </div>
+            <span class="recommend-item__specialisation">Стоматолог</span>
+            <span class="recommend-item__name">Муратов Александр Викторович</span>
+          </a>
+          <a href="#" class="recommend-item">
+            <div class="recommend-item__img">
+              <img src="img/main/recommend-doctor-2.png" alt="">
+            </div>
+            <span class="recommend-item__specialisation">Аллерголог</span>
+            <span class="recommend-item__name">Игнатова Антонина Валерьевна</span>
+          </a>
+          <a href="#" class="recommend-item">
+            <div class="recommend-item__img">
+              <img src="img/main/recommend-doctor-3.png" alt="">
+            </div>
+            <span class="recommend-item__specialisation">ЛОР</span>
+            <span class="recommend-item__name">Потапенко Анатолий Васильевич</span>
+          </a>
+          <a href="#" class="recommend-item">
+            <div class="recommend-item__img">
+              <img src="img/main/recommend-doctor-4.png" alt="">
+            </div>
+            <span class="recommend-item__specialisation">Гастроэнтеролог</span>
+            <span class="recommend-item__name">Шевченоко Наталья Юрьевна</span>
+          </a>
+          <a href="#" class="recommend-item">
+            <div class="recommend-item__img">
+              <img src="img/main/recommend-doctor-5.png" alt="">
+            </div>
+            <span class="recommend-item__specialisation">Детский стоматолог</span>
+            <span class="recommend-item__name">Исхандер Иоланта Сергеевна</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap content-flex between">
+      <div class="footer-item">
+        © AО “Визитка врача”, 2021.
+      </div>
+
+      <div class="footer-item">
+        <span class="js-toSupport js-supportEmpty link"> Написать в тех. поддержку</span>
+        <a href="mailto:Info@mail.com" class="link">Info@mail.com</a>
+      </div>
+
+      <a href="privacy.html" class="footer-item link">
+        Политика обработки информации
+      </a>
+
+    </div>
+  </footer>
+
+
+  <script src="js/jquery.js"></script>
+  <script src="js/droplist.js"></script>
+  <script src="js/jquery.mask.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

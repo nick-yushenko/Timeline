@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>Визитка врача</title>
+</head>
+
+<body>
+
+
+
+
+  <!-- Изменить почту -->
+  <div class="modal modal-notify  active ">
+
+    <div class="modal-wrap modal-notify-wrap">
+
+      <h2 class="modal-title"> Изменить электронную почту</h2>
+
+      <span class="modal-reset-text">На указанную вами почту было отправлено письмо для подтверждения. Пожалуйста,
+        подтвердите смену почты в этом письме.</span>
+      <div class="btn modal-notify-btn ">Понятно</div>
+
+    </div>
+
+  </div>
+
+  <!-- Почта  заменена  -->
+  <!-- Почта  заменена  -->
+  <div class="modal modal-notify   ">
+
+    <div class="modal-wrap modal-notify-wrap">
+
+      <h2 class="modal-title"> Электронная почта заменена</h2>
+
+      <span class="modal-reset-text">Ваша электронная почта успешно заменена на newmail@gmail.com</span>
+      <div class="btn modal-notify-btn ">Понятно</div>
+
+    </div>
+
+  </div>
+
+  <!-- Удалить аккаунт?  -->
+  <div class="modal modal-delete  ">
+
+    <div class="modal-wrap modal-notify-wrap">
+
+      <h2 class="modal-title"> Удалить аккаунт</h2>
+
+      <span class="modal-reset-text">Вы уверены, что хотите удалить акааунт? После удаления все данные будут
+        потеряны.</span>
+      <form action="#" class="modal-delete-wrap">
+
+        <div class="btn modal-notify-btn modal-delete__btn ">Не удалять</div>
+        <input type="submit" value="Удалить" class="btn-light modal-delete__btn">
+
+      </form>
+
+    </div>
+
+  </div>
+  
+  <header class="header header_login ">
+    <div class="wrap content-flex">
+      <div class="logo">
+        <img src="img/icons/logo.svg" alt="Визитка Врача">
+      </div>
+      <div class="city toModal js-toChooseCity">
+        <img src="img/icons/city-icon.svg" alt="">
+        <span class="name">Москва</span>
+      </div>
+      <form role="search" method="get" class="header-search search-form " action="#">
+        <label>
+          <span class="screen-reader-text">
+          </span>
+          <input type="text" class="search-field field header-search__field " placeholder="Поиск" />
+
+
+        </label>
+        <button type="submit" class="header-search__submit">
+          <img src="img/icons/search-icon_white.svg" alt="" class="header-search__icon">
+        </button>
+      </form>
+
+      <div class="buttons content-flex">
+        <div class="header-mini js-toggleHeaderMenu">
+          Муратов. А
+        </div>
+        <a href="invited.html" class="btn header-invite">
+          Пригласить
+        </a>
+
+        <div class="header-mini__wrap  js-headerMenu">
+          <a href="profile.html" class="header-mini__item ">
+            <img src="img/icons/header-mini-1-icon.svg" alt="">
+            <img src="img/icons/header-mini-1-icon_active.svg" alt="" class="current">
+
+            <span>Мой профиль</span>
+          </a>
+          <a href="colleagues.html" class="header-mini__item ">
+            <img src="img/icons/header-mini-2-icon.svg" alt="">
+            <img src="img/icons/header-mini-2-icon_active.svg" alt="" class="current">
+            <span>Мои коллеги</span>
+          </a>
+          <div class="line"></div>
+          <a href="settings.html" class="header-mini__item current">
+            <img src="img/icons/header-mini-3-icon.svg" alt="">
+            <img src="img/icons/header-mini-3-icon_active.svg" alt="" class="current">
+
+            <span>Настройки</span>
+          </a>
+          <a href="index.html" class="header-mini__item">
+            <img src="img/icons/header-mini-4-icon_active.svg" alt="" class="current">
+            <img src="img/icons/header-mini-4-icon.svg" alt="">
+            <span>Выйти</span>
+          </a>
+        </div>
+      </div>
+
+
+    </div>
+  </header>
+
+  <main class="main ">
+    <section class="section data">
+
+      <div class="wrap">
+        <div class="section-nav">
+          <a href="#"> Главная </a>
+          <img src="img/icons/arrow-icon.svg" alt="">
+          <a href="#"> Личный кабинет </a>
+          <img src="img/icons/arrow-icon.svg" alt="">
+          <a href="#"> Настройки </a>
+        </div>
+      </div>
+
+      <div class="data-wrap">
+        <h2 class="section-title">Настройки</h2>
+
+        <form action="#" class="data-box" id="settingsChangeEmail">
+          <h3 class="data-box__title">Электронная почта</h3>
+          <div class="input-block">
+            <span class="input-block__hint">Эл. почта</span>
+            <input class="input-block__field field" type="email" name="email" id="" placeholder="mymail@mail.com">
+          </div>
+          <input type="submit" value="Изменить" class=" form-submit disabled data-box__submit btn">
+        </form>
+
+        <form action="#" class="data-box" id="settingsChangePassword">
+          <h3 class="data-box__title">Сменить пароль</h3>
+          <div class="input-block password">
+            <span class="input-block__hint">Введите текущий пароль</span>
+            <input class="input-block__field field pass" type="password" name="currentPassword" id=""
+              placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+            <div class="input-block__hidepassword">
+              <img src="img/icons/password-off-icon.svg" alt="" class="input-block__hidepassword-icon active">
+              <img src="img/icons/password-on-icon.svg" alt="" class="input-block__hidepassword-icon ">
+            </div>
+          </div>
+
+          <div class="input-block password">
+            <span class="input-block__hint">Введите новый пароль</span>
+            <input class="input-block__field field pass" type="password" name="newPassword" id=""
+              placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+            <div class="input-block__hidepassword">
+              <img src="img/icons/password-off-icon.svg" alt="" class="input-block__hidepassword-icon active">
+              <img src="img/icons/password-on-icon.svg" alt="" class="input-block__hidepassword-icon ">
+            </div>
+            <span class="input-block__text">
+              Пароль должен содержать не&nbsp;менее 8&nbsp;знаков, включая заглавные буквы и&nbsp;цифры.
+            </span>
+          </div>
+
+          <div class="input-block password">
+            <span class="input-block__hint">Повторите новый пароль</span>
+            <input class="input-block__field field pass" type="password" name="confirmNewPassword" id=""
+              placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+            <div class="input-block__hidepassword">
+              <img src="img/icons/password-off-icon.svg" alt="" class="input-block__hidepassword-icon active">
+              <img src="img/icons/password-on-icon.svg" alt="" class="input-block__hidepassword-icon ">
+            </div>
+
+          </div>
+          <input type="submit" value="Сохранить пароль" class="form-submit disabled data-box__submit btn">
+        </form>
+
+        <div  class="data-box">
+          <h3 class="data-box__title">Удалить аккаунт</h3>
+          <p class="data-box__text">
+            Вы&nbsp;можете удалить свой аккаунт в&nbsp;один клик. Обратите внимание, что в&nbsp;этом случае удалится вся
+            информация вашего профиля, а&nbsp;код приглашения станет недействительным. Мы&nbsp;не&nbsp;сможем это
+            восстановить.
+          </p>
+          <div class="data-box__submit btn-light js-toDeleteAccount">
+            Удалить аккаунт
+          </div>
+        </div>
+
+      </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap content-flex between">
+      <div class="footer-item">
+        © AО “Визитка врача”, 2021.
+      </div>
+
+      <div class="footer-item">
+        <span class="js-toSupport js-supportEmpty link"> Написать в тех. поддержку</span>
+        <a href="mailto:Info@mail.com" class="link">Info@mail.com</a>
+      </div>
+
+      <a href="privacy.html" class="footer-item link">
+        Политика обработки информации
+      </a>
+
+    </div>
+  </footer>
+  <script src="js/jquery.js"></script>
+  <script src="js/droplist.js"></script>
+  <script src="js/jquery.mask.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

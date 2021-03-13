@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <title>Визитка врача</title>
+</head>
+
+<body>
+  <!-- Выбор города -->
+  <div class="modal modal-city">
+
+    <div class="modal-wrap modal-city-wrap">
+      <h2 class="modal-title">Выберите город</h2>
+
+      <div role="search" method="get" class="modal-city-search search-form" action="#">
+        <label>
+          <span class="screen-reader-text">
+          </span>
+          <input type="text" class="search-field field modal-city-search__field js-searchInput" placeholder="Ваш город"
+            id="modalCitySearchField" data-listWrapClass="modal-city-list" />
+
+        </label>
+        <button type="submit" class="search-submit btn modal-city-search__submit">
+          <img src="img/icons/search-icon_white.svg" alt="" class="modal-city-search__icon">
+        </button>
+      </div>
+
+      <ul class="modal-city-list">
+        <li class="modal-city-item empty">Ничего не найдено</li>
+
+        <li class="modal-city-item" onclick="chooseCity(event)">Екатеринбург</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Казань</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Краснодар</li>
+        <li class="modal-city-item current" onclick="chooseCity(event)">Москва</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Нижний Новгород</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Новосибирск</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Ростов-на-Дону</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Самара</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Санкт-Петербург</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Уфа</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Челябинск</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Екатеринбург</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Казань</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Краснодар</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Нижний Новгород</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Новосибирск</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Ростов-на-Дону</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Самара</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Санкт-Петербург</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Уфа</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Челябинск</liv>
+
+      </ul>
+
+
+    </div>
+  </div>
+  <div class="modal modal-login">
+
+    <div class="modal-wrap modal-login-wrap">
+      <h2 class="modal-title">Вход</h2>
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <form role="login" method="get" class="modal-login-form" action="#">
+        <div class="input-block">
+          <span class="input-block__hint">Ваш E-mail</span>
+          <input class="input-block__field field" type="email" name="email" id="" placeholder="mymail@mail.com">
+        </div>
+        <div class="input-block password">
+          <span class="input-block__hint">Пароль</span>
+          <input class="input-block__field field pass" type="password" name="password" id=""
+            placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+          <div class="input-block__hidepassword">
+            <img src="img/icons/password-off-icon.svg" alt="" class="input-block__hidepassword-icon active">
+            <img src="img/icons/password-on-icon.svg" alt="" class="input-block__hidepassword-icon ">
+          </div>
+        </div>
+
+        <span class="modal-login-forgot js-toReset ">Забыли пароль?</span>
+
+        <input type="submit" value="Войти" class="login-submit modal-login-submit btn">
+      </form>
+
+    </div>
+    <div class="modal-wrap modal-login-info">
+      <span class="modal-login-info__text">Я еще не зарегистрирован на сайте</span>
+      <span class="modal-login-info__link js-toRegister">Зарегистрироваться</span>
+
+    </div>
+  </div>
+  <div class="modal modal-reset">
+
+    <div class="modal-wrap modal-reset-wrap">
+
+      <h2 class="modal-title"> <img src="img/icons/back-icon.svg" alt="" class="modal-back js-toLogin"> Сброс пароля
+      </h2>
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <form role="reset" method="get" class="modal-reset-form" action="#">
+        <span class="modal-reset-text">Введите электронную почту, на которую был зарегистрирован аккаунт.</span>
+
+        <div class="input-block">
+          <span class="input-block__hint"> E-mail</span>
+          <input class="input-block__field field" type="email" name="email" id="" placeholder="mymail@mail.com">
+        </div>
+
+
+        <input type="submit" value="Сбросить пароль" class="login-submit modal-reset-submit btn">
+      </form>
+
+
+
+    </div>
+
+  </div>
+  <!-- Пароль сброшен -->
+  <div class="modal modal-notify">
+
+    <div class="modal-wrap modal-notify-wrap">
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <h2 class="modal-title"> Пароль сброшен</h2>
+
+      <span class="modal-reset-text">На вашу почту было отправлено письмо с инструкциями по сбросу пароля. Перейдите
+        по ссылке в этом письме, чтобы продолжить процесс и создать новый пароль.</span>
+
+      <div class="btn  modal-notify-btn modal-close">На главную</div>
+    </div>
+
+  </div>
+  <!-- Подтвердите почту -->
+  <div class="modal modal-notify ">
+
+    <div class="modal-wrap modal-notify-wrap">
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <h2 class="modal-title"> Подтвердите e-mail</h2>
+
+      <span class="modal-reset-text">На указанный Вами e-mail было отправлено письмо с подтверждением. Проверьте
+        электронную почту и перейдите по ссылке, указанной в письме.</span>
+      <div class="btn modal-notify-btn ">Понятно</div>
+
+    </div>
+
+  </div>
+  <!-- Регистрация. этап 1 -->
+  <div class="modal modal-code  ">
+
+    <div class="modal-wrap modal-code-wrap">
+      <h2 class="modal-title">Регистрация</h2>
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <form method="get" class="modal-code-form" action="#">
+
+        <span class="modal-code-text">Для регистрации на сайте введите код приглашения.</span>
+
+        <div class="input-block input-block_code ">
+          <input class="input-block__field field code-field" type="text" maxlength="4" id="" placeholder="1111">
+          <img src="img/icons/line-icon.svg" alt="" class="modal-code-line">
+          <input class="input-block__field field code-field" type="text" maxlength="4" id="" placeholder="1111">
+          <img src="img/icons/line-icon.svg" alt="" class="modal-code-line">
+          <input class="input-block__field field code-field" type="text" maxlength="4" id="" placeholder="1111">
+          <img src="img/icons/line-icon.svg" alt="" class="modal-code-line">
+          <input class="input-block__field field code-field" type="text" maxlength="4" id="" placeholder="1111">
+        </div>
+
+        <input type="submit" value="Продолжить" class="login-submit modal-code-submit btn">
+        <span class="modal-code-nocode js-toNocode ">У меня нет кода</span>
+
+      </form>
+
+    </div>
+  </div>
+  <!-- Регистрация. этап 2 -->
+  <div class="modal modal-register ">
+
+    <div class="modal-wrap modal-register-wrap ">
+      <h2 class="modal-title">Регистрация</h2>
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <form role="register" method="get" class="modal-register-form" action="#">
+        <div class="input-block">
+          <span class="input-block__hint">Ваш контактный E-mail</span>
+          <input class="input-block__field field" type="email" name="email" id="" placeholder="mymail@mail.com">
+        </div>
+        <div class="input-block password">
+          <span class="input-block__hint">Введите пароль</span>
+          <input class="input-block__field field pass" type="password" name="password" id=""
+            placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+          <div class="input-block__hidepassword">
+            <img src="img/icons/password-off-icon.svg" alt="" class="input-block__hidepassword-icon active">
+            <img src="img/icons/password-on-icon.svg" alt="" class="input-block__hidepassword-icon ">
+          </div>
+        </div>
+
+        <div class="input-block password">
+          <span class="input-block__hint">Повторите пароль</span>
+          <input class="input-block__field field pass" type="password" name="password" id=""
+            placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+          <div class="input-block__hidepassword">
+            <img src="img/icons/password-off-icon.svg" alt="" class="input-block__hidepassword-icon active">
+            <img src="img/icons/password-on-icon.svg" alt="" class="input-block__hidepassword-icon ">
+          </div>
+        </div>
+
+        <input type="submit" value="Зарегистрироваться" class="login-submit modal-register-submit btn">
+        <span class="modal-register-text">
+          Регистрируясь, вы подтверждаете, что вам 18 или более лет и вы соглашаетесь c
+          <span class="primary">правилами использования </span> и <span class="primary">политикой
+            конфиденциальности</span>.
+        </span>
+      </form>
+
+    </div>
+
+  </div>
+
+  <div class="modal modal-nocode ">
+
+    <div class="modal-wrap modal-nocode-wrap">
+
+      <h2 class="modal-title"> <img src="img/icons/back-icon.svg" alt="" class="modal-back js-toRegister"> Нет кода
+      </h2>
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <span class="modal-nocode-text">
+        В настоящее время регистрация в системе визиткаврача.ру возможна только по приглашению от коллеги. Если у Вас
+        его нет, попросите одного из коллег, зарегистрированных в системе, отправить Вам приглашение.
+      </span>
+
+      <span class="modal-nocode-text">
+        Если у Вас нет возможности получить код приглашения, обратитесь к нам в службу поддержки.
+      </span>
+
+
+      <div class="btn-light js-toSupport">Служба поддержки</div>
+      <div class="modal-nocode-close btn">Закрыть</div>
+
+
+    </div>
+
+  </div>
+
+  <div class="modal modal-support">
+
+    <div class="modal-wrap modal-support-wrap">
+
+      <h2 class="modal-title"> <img src="img/icons/back-icon.svg" alt="" class="modal-back js-toNocode"> Служба
+        поддержки
+      </h2>
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <span class="modal-nocode-text">
+        Уважаемый коллега, наша система предназначена для максимально комфортного и безопасного обмена информацией между
+        врачами и пациентами. Если у Вас есть вопросы или комментарии, напишите, пожалуйста, нам с указанием ФИО,
+        специальности и темы обращения.
+      </span>
+
+      <form method="get" class="modal-support-form" action="#">
+
+        <div class="input-block">
+          <span class="input-block__hint">Ваш контактный E-mail</span>
+          <input class="input-block__field field" type="email" id="" placeholder="mymail@mail.com">
+        </div>
+        <div class="input-block">
+          <span class="input-block__hint">Как к Вам обращаться</span>
+          <input class="input-block__field field" type="text" id="" placeholder="Иванов Иван">
+        </div>
+
+        <div class="input-block select-wrap">
+
+          <div class="select">
+            <input class="select__input" type="hidden" name="">
+            <div class="select__head" value="">
+              <input type="text" readonly placeholder="Тема обращения">
+            </div>
+
+
+            <ul class="select__list" style="display: none;">
+              <li class="select__item">Что-то </li>
+              <li class="select__item">Что-то </li>
+              <li class="select__item">Что-то </li>
+              <li class="select__item">Что-то </li>
+              <li class="select__item">Что-то </li>
+              <li class="select__item">Что-то </li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="input-block">
+          <textarea class="input-block__field textarea" name="" id="" cols="30" rows="30"
+            placeholder="Напишите нам сообщение"></textarea>
+        </div>
+
+        <input type="submit" value="Отправить" class="login-submit modal-support-submit btn">
+      </form>
+
+    </div>
+
+  </div>
+  <!-- Сообщение отправлено -->
+  <div class="modal modal-notify  ">
+
+    <div class="modal-wrap modal-notify-wrap">
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <h2 class="modal-title"> Сообщение отправлено</h2>
+
+      <span class="modal-reset-text">Ваше сообщение отправлено. Наши специалисты ответят Вам в течение нескольких
+        часов.</span>
+      <div class="btn modal-notify-btn ">Закрыть</div>
+
+    </div>
+
+  </div>
+
+
+
+  <header class="header ">
+    <div class="wrap content-flex">
+      <div class="logo">
+        <img src="img/icons/logo.svg" alt="Визитка Врача">
+      </div>
+      <div class="city toModal js-toChooseCity">
+        <img src="img/icons/city-icon.svg" alt="">
+        <span class="name">Москва</span>
+      </div>
+      <form role="search" method="get" class="header-search search-form " action="#">
+        <label>
+          <span class="screen-reader-text">
+          </span>
+          <input type="text" class="search-field field header-search__field " placeholder="Поиск" maxlength="70" />
+        
+
+        </label>
+        <button type="submit" class="header-search__submit">
+          <img src="img/icons/search-icon_white.svg" alt="" class="header-search__icon">
+        </button>
+      </form>
+      <div class="buttons content-flex">
+        <div class="signup js-toRegister">
+          Регистрация
+        </div>
+        <div class="login btn js-toLogin">
+          Вход
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main ">
+
+    <section class="section catalog">
+      <div class="wrap">
+        <div class="section-nav">
+          <a href="#"> Главная </a>
+          <img src="img/icons/arrow-icon.svg" alt="">
+          <a href="#"> Поиск </a>
+          <img src="img/icons/arrow-icon.svg" alt="">
+          <a href="#"> Стоматология </a>
+        </div>
+      </div>
+      <div class="wrap content-flex">
+        <div class="sidebar sidebar_notfixed">
+          <form action="#" class="catalog-filter">
+            <div class="catalog-specialty catalog-filter__block">
+              <span class="catalog-filter__title">Специальность</span>
+
+              <div class="catalog-filter__list">
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox" checked>
+                    <span class="checkbox__text">Аллергология</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox" checked>
+                    <span class="checkbox__text">Агноневрология</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">Андрология</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">Анестезиология</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">Бальнеология</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">Аллергология</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">Агноневрология</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">Андрология</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">Анестезиология</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">Бальнеология</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">Аллергология</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">Агноневрология</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">Андрология</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">Анестезиология</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">Бальнеология</span>
+                  </label>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="catalog-experience catalog-filter__block ">
+              <span class="catalog-filter__title">Стаж работы</span>
+              <div class="close-filter">
+                <img src="img/icons/filter-icon.svg" alt="">
+              </div>
+              <div class="catalog-filter__list catalog-experience__list">
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox" checked>
+                    <span class="checkbox__text">до 3 лет</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox" checked>
+                    <span class="checkbox__text">3-6 лет</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">6-12 лет</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">более 12 лет</span>
+                  </label>
+                </div>
+              
+         
+              </div>
+
+            </div>
+            <div class="catalog-category catalog-filter__block ">
+              <span class="catalog-filter__title">Категория</span>
+              <div class="close-filter">
+                <img src="img/icons/filter-icon.svg" alt="">
+              </div>
+              <div class="catalog-filter__list catalog-experience__list">
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox" checked>
+                    <span class="checkbox__text">до 3 лет</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox" checked>
+                    <span class="checkbox__text">3-6 лет</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">6-12 лет</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox">
+                    <span class="checkbox__text">более 12 лет</span>
+                  </label>
+                </div>
+              
+         
+              </div>
+
+            </div>
+            <div class="catalog-degree catalog-filter__block ">
+              <span class="catalog-filter__title">Ученая степень </span>
+              <div class="close-filter">
+                <img src="img/icons/filter-icon.svg" alt="">
+              </div>
+              <div class="catalog-filter__list catalog-experience__list">
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox" checked>
+                    <span class="checkbox__text">Кандидат медицинских наук</span>
+                  </label>
+                </div>
+                <div class="catalog-filter__item">
+                  <label class="checkbox ">
+                    <input type="checkbox" checked>
+                    <span class="checkbox__text">Доктор медицинских наук</span>
+                  </label>
+                </div>
+               
+              
+         
+              </div>
+
+            </div>
+
+            <input type="submit" class="submit catalog-filter__submit btn" value="Применить фильтры">
+          </form>
+        </div>
+        <div class="content">
+          <h1 class="section-title catalog-title">Мрываоплу</h1>
+          <span class="catalog-notfound">По вашему запросу ничего не нашлось</span>
+
+          <h1 class="section-title catalog-title">Стоматология <span>1023</span></h1>
+
+          <div class="catalog-wrap">
+
+            <a href="doctor.html" class="catalog-item">
+              <div class="catalog-item__img">
+                <img src="img/catalog/catalog-item-1.png" alt="">
+                <img src="img/catalog/catalog-img-line.svg" alt="" class="line">
+              </div>
+              <div class="catalog-item__descr">
+                <span class="location">Москва, Химки</span>
+                <span class="name">Муратов Александр Викторович</span>
+                <span class="descr">Мануальный терапевт, невролог, остеопат, рефлексотерапевт...</span>
+                <span class="experience"><span>Стаж</span>14 лет</span>
+
+              </div>
+            </a>
+
+            <a href="doctor.html" class="catalog-item">
+              <div class="catalog-item__img">
+                <img src="img/catalog/catalog-item-1.png" alt="">
+                <img src="img/catalog/catalog-img-line.svg" alt="" class="line">
+
+              </div>
+              <div class="catalog-item__descr">
+                <span class="location">Москва, Химки</span>
+                <span class="name">Муратов Александр Викторович</span>
+                <span class="descr">Мануальный терапевт, невролог, остеопат, рефлексотерапевт...</span>
+                <span class="experience"><span>Стаж</span>14 лет</span>
+
+              </div>
+            </a>
+
+            <a href="doctor.html" class="catalog-item">
+              <div class="catalog-item__img">
+                <img src="img/catalog/catalog-item_empty.svg" alt="">
+                <img src="img/catalog/catalog-img-line.svg" alt="" class="line">
+
+              </div>
+              <div class="catalog-item__descr">
+                <span class="location">Москва, Химки</span>
+                <span class="name">Муратов Александр Викторович</span>
+                <span class="descr">Мануальный терапевт, невролог, остеопат, рефлексотерапевт...</span>
+                <span class="experience"><span>Стаж</span>14 лет</span>
+
+              </div>
+            </a>
+
+            <a href="doctor.html" class="catalog-item">
+              <div class="catalog-item__img">
+                <img src="img/catalog/catalog-item_empty.svg" alt="">
+                <img src="img/catalog/catalog-img-line.svg" alt="" class="line">
+
+              </div>
+              <div class="catalog-item__descr">
+                <span class="location">Москва, Химки</span>
+                <span class="name">Муратов Александр Викторович</span>
+                <span class="descr">Мануальный терапевт, невролог, остеопат, рефлексотерапевт...</span>
+                <span class="experience"><span>Стаж</span>14 лет</span>
+
+              </div>
+            </a>
+            <a href="doctor.html" class="catalog-item">
+              <div class="catalog-item__img">
+                <img src="img/catalog/catalog-item-1.png" alt="">
+                <img src="img/catalog/catalog-img-line.svg" alt="" class="line">
+              </div>
+              <div class="catalog-item__descr">
+                <span class="location">Москва, Химки</span>
+                <span class="name">Муратов Александр Викторович</span>
+                <span class="descr">Мануальный терапевт, невролог, остеопат, рефлексотерапевт...</span>
+                <span class="experience"><span>Стаж</span>14 лет</span>
+
+              </div>
+            </a>
+
+            <a href="doctor.html" class="catalog-item">
+              <div class="catalog-item__img">
+                <img src="img/catalog/catalog-item-1.png" alt="">
+                <img src="img/catalog/catalog-img-line.svg" alt="" class="line">
+
+              </div>
+              <div class="catalog-item__descr">
+                <span class="location">Москва, Химки</span>
+                <span class="name">Муратов Александр Викторович</span>
+                <span class="descr">Мануальный терапевт, невролог, остеопат, рефлексотерапевт...</span>
+                <span class="experience"><span>Стаж</span>14 лет</span>
+
+              </div>
+            </a>
+
+            <a href="doctor.html" class="catalog-item">
+              <div class="catalog-item__img">
+                <img src="img/catalog/catalog-item_empty.svg" alt="">
+                <img src="img/catalog/catalog-img-line.svg" alt="" class="line">
+
+              </div>
+              <div class="catalog-item__descr">
+                <span class="location">Москва, Химки</span>
+                <span class="name">Муратов Александр Викторович</span>
+                <span class="descr">Мануальный терапевт, невролог, остеопат, рефлексотерапевт...</span>
+                <span class="experience"><span>Стаж</span>14 лет</span>
+
+              </div>
+            </a>
+
+            <a href="doctor.html" class="catalog-item">
+              <div class="catalog-item__img">
+                <img src="img/catalog/catalog-item_empty.svg" alt="">
+                <img src="img/catalog/catalog-img-line.svg" alt="" class="line">
+
+              </div>
+              <div class="catalog-item__descr">
+                <span class="location">Москва, Химки</span>
+                <span class="name">Муратов Александр Викторович</span>
+                <span class="descr">Мануальный терапевт, невролог, остеопат, рефлексотерапевт...</span>
+                <span class="experience"><span>Стаж</span>14 лет</span>
+
+              </div>
+            </a>
+            <a href="doctor.html" class="catalog-item">
+              <div class="catalog-item__img">
+                <img src="img/catalog/catalog-item-1.png" alt="">
+                <img src="img/catalog/catalog-img-line.svg" alt="" class="line">
+              </div>
+              <div class="catalog-item__descr">
+                <span class="location">Москва, Химки</span>
+                <span class="name">Муратов Александр Викторович</span>
+                <span class="descr">Мануальный терапевт, невролог, остеопат, рефлексотерапевт...</span>
+                <span class="experience"><span>Стаж</span>14 лет</span>
+
+              </div>
+            </a>
+
+            <a href="doctor.html" class="catalog-item">
+              <div class="catalog-item__img">
+                <img src="img/catalog/catalog-item-1.png" alt="">
+                <img src="img/catalog/catalog-img-line.svg" alt="" class="line">
+
+              </div>
+              <div class="catalog-item__descr">
+                <span class="location">Москва, Химки</span>
+                <span class="name">Муратов Александр Викторович</span>
+                <span class="descr">Мануальный терапевт, невролог, остеопат, рефлексотерапевт...</span>
+                <span class="experience"><span>Стаж</span>14 лет</span>
+
+              </div>
+            </a>
+
+            <a href="doctor.html" class="catalog-item">
+              <div class="catalog-item__img">
+                <img src="img/catalog/catalog-item_empty.svg" alt="">
+                <img src="img/catalog/catalog-img-line.svg" alt="" class="line">
+
+              </div>
+              <div class="catalog-item__descr">
+                <span class="location">Москва, Химки</span>
+                <span class="name">Муратов Александр Викторович</span>
+                <span class="descr">Мануальный терапевт, невролог, остеопат, рефлексотерапевт...</span>
+                <span class="experience"><span>Стаж</span>14 лет</span>
+
+              </div>
+            </a>
+
+            <a href="doctor.html" class="catalog-item">
+              <div class="catalog-item__img">
+                <img src="img/catalog/catalog-item_empty.svg" alt="">
+                <img src="img/catalog/catalog-img-line.svg" alt="" class="line">
+
+              </div>
+              <div class="catalog-item__descr">
+                <span class="location">Москва, Химки</span>
+                <span class="name">Муратов Александр Викторович</span>
+                <span class="descr">Мануальный терапевт, невролог, остеопат, рефлексотерапевт...</span>
+                <span class="experience"><span>Стаж</span>14 лет</span>
+
+              </div>
+            </a>
+            <a href="doctor.html" class="catalog-item">
+              <div class="catalog-item__img">
+                <img src="img/catalog/catalog-item_empty.svg" alt="">
+                <img src="img/catalog/catalog-img-line.svg" alt="" class="line">
+
+              </div>
+              <div class="catalog-item__descr">
+                <span class="location">Москва, Химки</span>
+                <span class="name">Муратов Александр Викторович</span>
+                <span class="descr">Мануальный терапевт, невролог, остеопат, рефлексотерапевт...</span>
+                <span class="experience"><span>Стаж</span>14 лет</span>
+
+              </div>
+            </a>
+            <a href="doctor.html" class="catalog-item">
+              <div class="catalog-item__img">
+                <img src="img/catalog/catalog-item_empty.svg" alt="">
+                <img src="img/catalog/catalog-img-line.svg" alt="" class="line">
+
+              </div>
+              <div class="catalog-item__descr">
+                <span class="location">Москва, Химки</span>
+                <span class="name">Муратов Александр Викторович</span>
+                <span class="descr">Мануальный терапевт, невролог, остеопат, рефлексотерапевт...</span>
+                <span class="experience"><span>Стаж</span>14 лет</span>
+
+              </div>
+            </a>
+          </div>
+
+          <div class="catalog-pages">
+            <a href="#" class="prev">
+              <img src="img/icons/arrow-icon_disable.svg" alt="" class="disable">
+              <img src="img/icons/arrow-icon__active.svg" alt="" class="active">
+              <span>Предыдущая</span>
+            </a>
+            <a href="#" class="page current">1</a>
+            <a href="#" class="page">2</a>
+            <a href="#" class="page">3</a>
+            <span class="page page-hidden">...</span>
+            <a href="#" class="page">10</a>
+            <a href="#" class="next active">
+              <span>Следующая</span>
+
+              <img src="img/icons/arrow-icon_disable.svg" alt="" class="disable">
+              <img src="img/icons/arrow-icon__active.svg" alt="" class="active">
+            </a href="#">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap content-flex between">
+      <div class="footer-item">
+        © AО “Визитка врача”, 2021.
+      </div>
+
+      <div class="footer-item">
+        <span class="js-toSupport js-supportEmpty link"> Написать в тех. поддержку</span>
+        <a href="mailto:Info@mail.com" class="link">Info@mail.com</a>
+      </div>
+
+      <a href="privacy.html" target="_blank" class="footer-item link">
+        Политика обработки информации
+      </a>
+
+    </div>
+  </footer>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/droplist.js"></script>
+  <script src="js/jquery.mask.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

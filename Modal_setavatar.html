@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>Визитка врача</title>
+</head>
+
+<body>
+
+
+
+  <div class="modal modal-city">
+    <div class="modal-wrap modal-city-wrap">
+      <h2 class="modal-title">Выберите город</h2>
+      <form role="search" method="get" class="modal-city-search search-form" action="#">
+        <label>
+          <span class="screen-reader-text">
+          </span>
+          <input type="text" class="search-field field modal-city-search__field" placeholder="Ваш город"
+            id="modalCitySearchField" />
+        </label>
+        <button type="submit" class="search-submit btn modal-city-search__submit">
+          <img src="img/icons/search-icon_white.svg" alt="" class="modal-city-search__icon">
+        </button>
+      </form>
+      <ul class="modal-city-list">
+        <li class="modal-city-item" onclick="chooseCity(event)">Екатеринбург</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Казань</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Краснодар</li>
+        <li class="modal-city-item current" onclick="chooseCity(event)">Москва</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Нижний Новгород</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Новосибирск</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Ростов-на-Дону</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Самара</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Санкт-Петербург</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Уфа</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Челябинск</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Екатеринбург</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Казань</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Краснодар</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Нижний Новгород</li>
+        <li class="modal-city-item" onclick="chooseCity(event)">Новосибирск</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Ростов-на-Дону</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Самара</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Санкт-Петербург</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Уфа</liv>
+        <li class="modal-city-item" onclick="chooseCity(event)">Челябинск</liv>
+      </ul>
+    </div>
+  </div>
+  <div class="modal modal-login">
+    <div class="modal-wrap modal-login-wrap">
+      <h2 class="modal-title">Вход</h2>
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <form role="login" method="get" class="modal-login-form" action="#">
+        <div class="input-block">
+          <span class="input-block__hint">Ваш контактный E-mail</span>
+          <input class="input-block__field field" type="email" name="email" id="" placeholder="mymail@mail.com">
+        </div>
+        <div class="input-block password">
+          <span class="input-block__hint">Пароль</span>
+          <input class="input-block__field field pass" type="password" name="password" id=""
+            placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+          <div class="input-block__hidepassword">
+            <img src="img/icons/password-off-icon.svg" alt="" class="input-block__hidepassword-icon active">
+            <img src="img/icons/password-on-icon.svg" alt="" class="input-block__hidepassword-icon ">
+          </div>
+        </div>
+        <span class="modal-login-forgot js-toReset ">Забыли пароль?</span>
+        <input type="submit" value="Войти" class="login-submit modal-login-submit btn">
+      </form>
+    </div>
+    <div class="modal-wrap modal-login-info">
+      <span class="modal-login-info__text">Я&nbsp;еще не&nbsp;зарегистрирован на&nbsp;сайте</span>
+      <span class="modal-login-info__link js-toRegister">Зарегистрироваться</span>
+    </div>
+  </div>
+  <div class="modal modal-reset">
+    <div class="modal-wrap modal-reset-wrap">
+      <h2 class="modal-title"> <img src="img/icons/back-icon.svg" alt="" class="modal-back js-toLogin"> Сброс пароля
+      </h2>
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <form role="reset" method="get" class="modal-reset-form" action="#">
+        <span class="modal-reset-text">Введите электронную почту, на&nbsp;которую был зарегистрирован аккаунт.</span>
+        <div class="input-block">
+          <span class="input-block__hint"> E-mail</span>
+          <input class="input-block__field field" type="email" name="email" id="" placeholder="mymail@mail.com">
+        </div>
+        <input type="submit" value="Сбросить пароль" class="login-submit modal-reset-submit btn">
+      </form>
+    </div>
+  </div>
+  <!-- Пароль сброшен -->
+  <div class="modal modal-notify">
+    <div class="modal-wrap modal-notify-wrap">
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <h2 class="modal-title"> Пароль сброшен</h2>
+      <span class="modal-reset-text">На&nbsp;вашу почту было отправлено письмо с&nbsp;инструкциями по&nbsp;сбросу
+        пароля. Перейдите
+        по&nbsp;ссылке в&nbsp;этом письме, чтобы продолжить процесс и&nbsp;создать новый пароль.</span>
+      <div class="btn modal-notify-btn modal-close">На&nbsp;главную</div>
+    </div>
+  </div>
+  <!-- Подтвердите почту -->
+  <div class="modal modal-notify ">
+    <div class="modal-wrap modal-notify-wrap">
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <h2 class="modal-title"> Подтвердите e-mail</h2>
+      <span class="modal-reset-text">На&nbsp;указанный Вами e-mail было отправлено письмо с&nbsp;подтверждением.
+        Проверьте
+        электронную почту и&nbsp;перейдите по&nbsp;ссылке, указанной в&nbsp;письме.</span>
+      <div class="btn modal-notify-btn ">Понятно</div>
+    </div>
+  </div>
+  <!-- Регистрация. этап 1 -->
+  <div class="modal modal-code ">
+    <div class="modal-wrap modal-code-wrap">
+      <h2 class="modal-title">Регистрация</h2>
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <form method="get" class="modal-code-form" action="#">
+        <span class="modal-code-text">Для регистрации на&nbsp;сайте введите код приглашения.</span>
+        <div class="input-block input-block_code ">
+          <input class="input-block__field field code-field" type="text" maxlength="4" id="" placeholder="1111">
+          <img src="img/icons/line-icon.svg" alt="" class="modal-code-line">
+          <input class="input-block__field field code-field" type="text" maxlength="4" id="" placeholder="1111">
+          <img src="img/icons/line-icon.svg" alt="" class="modal-code-line">
+          <input class="input-block__field field code-field" type="text" maxlength="4" id="" placeholder="1111">
+          <img src="img/icons/line-icon.svg" alt="" class="modal-code-line">
+          <input class="input-block__field field code-field" type="text" maxlength="4" id="" placeholder="1111">
+        </div>
+        <input type="submit" value="Продолжить" class="login-submit modal-code-submit btn">
+        <span class="modal-code-nocode js-toNocode ">У&nbsp;меня нет кода</span>
+      </form>
+    </div>
+  </div>
+  <!-- Регистрация. этап 2 -->
+  <div class="modal modal-register ">
+    <div class="modal-wrap modal-register-wrap active">
+      <h2 class="modal-title">Регистрация</h2>
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <form role="register" method="get" class="modal-register-form" action="#">
+        <div class="input-block">
+          <span class="input-block__hint">Ваш контактный E-mail</span>
+          <input class="input-block__field field" type="email" name="email" id="" placeholder="mymail@mail.com">
+        </div>
+        <div class="input-block password">
+          <span class="input-block__hint">Введите пароль</span>
+          <input class="input-block__field field pass" type="password" name="password" id=""
+            placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+          <div class="input-block__hidepassword">
+            <img src="img/icons/password-off-icon.svg" alt="" class="input-block__hidepassword-icon active">
+            <img src="img/icons/password-on-icon.svg" alt="" class="input-block__hidepassword-icon ">
+          </div>
+        </div>
+        <div class="input-block password">
+          <span class="input-block__hint">Повторите пароль</span>
+          <input class="input-block__field field pass" type="password" name="password" id=""
+            placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;">
+          <div class="input-block__hidepassword">
+            <img src="img/icons/password-off-icon.svg" alt="" class="input-block__hidepassword-icon active">
+            <img src="img/icons/password-on-icon.svg" alt="" class="input-block__hidepassword-icon ">
+          </div>
+        </div>
+        <input type="submit" value="Зарегистрироваться" class="login-submit modal-register-submit btn">
+        <span class="modal-register-text">
+          Регистрируясь, вы&nbsp;подтверждаете, что вам 18&nbsp;или более лет и&nbsp;вы&nbsp;соглашаетесь c
+          <span class="primary">правилами использования </span> и&nbsp;<span class="primary">политикой
+            конфиденциальности</span>.
+        </span>
+      </form>
+    </div>
+  </div>
+  <div class="modal modal-nocode ">
+    <div class="modal-wrap modal-nocode-wrap">
+      <h2 class="modal-title"> <img src="img/icons/back-icon.svg" alt="" class="modal-back js-toRegister"> Нет кода
+      </h2>
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <span class="modal-nocode-text">
+        В&nbsp;настоящее время регистрация в&nbsp;системе визиткаврача.ру возможна только по&nbsp;приглашению
+        от&nbsp;коллеги. Если у&nbsp;Вас
+        его нет, попросите одного из&nbsp;коллег, зарегистрированных в&nbsp;системе, отправить Вам приглашение.
+      </span>
+      <span class="modal-nocode-text">
+        Если у&nbsp;Вас нет возможности получить код приглашения, обратитесь к&nbsp;нам в&nbsp;службу поддержки.
+      </span>
+      <div class="btn-light js-toSupport">Служба поддержки</div>
+      <div class="modal-nocode-close btn">Закрыть</div>
+    </div>
+  </div>
+  <div class="modal modal-support">
+    <div class="modal-wrap modal-support-wrap">
+      <h2 class="modal-title"> <img src="img/icons/back-icon.svg" alt="" class="modal-back js-toNocode"> Служба
+        поддержки
+      </h2>
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <span class="modal-nocode-text">
+        Уважаемый коллега, наша система предназначена для максимально комфортного и&nbsp;безопасного обмена информацией
+        между
+        врачами и&nbsp;пациентами. Если у&nbsp;Вас есть вопросы или комментарии, напишите, пожалуйста, нам
+        с&nbsp;указанием ФИО,
+        специальности и&nbsp;темы обращения.
+      </span>
+      <form method="get" class="modal-support-form" action="#">
+        <div class="input-block">
+          <span class="input-block__hint">Ваш контактный E-mail</span>
+          <input class="input-block__field field" type="email" id="" placeholder="mymail@mail.com">
+        </div>
+        <div class="input-block">
+          <span class="input-block__hint">Как к&nbsp;Вам обращаться</span>
+          <input class="input-block__field field" type="text" id="" placeholder="Иванов Иван">
+        </div>
+        <div class="input-block select-wrap">
+          <div class="select">
+            <input class="select__input" type="hidden" name="">
+            <div class="select__head" value="">
+              <input type="text" readonly placeholder="Тема обращения">
+            </div>
+            <ul class="select__list" style="display: none;">
+              <li class="select__item">Что-то </li>
+              <li class="select__item">Что-то </li>
+              <li class="select__item">Что-то </li>
+              <li class="select__item">Что-то </li>
+              <li class="select__item">Что-то </li>
+              <li class="select__item">Что-то </li>
+            </ul>
+          </div>
+        </div>
+        <div class="input-block">
+          <textarea class="input-block__field textarea" name="" id="" cols="30" rows="30"
+            placeholder="Напишите нам сообщение"></textarea>
+        </div>
+        <input type="submit" value="Отправить" class="login-submit modal-support-submit btn">
+      </form>
+    </div>
+  </div>
+  <!-- Сообщение отправлено -->
+  <div class="modal modal-notify ">
+    <div class="modal-wrap modal-notify-wrap">
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <h2 class="modal-title"> Сообщение отправлено</h2>
+      <span class="modal-reset-text">Ваше сообщение отправлено. Наши специалисты ответят Вам в&nbsp;течение нескольких
+        часов.</span>
+      <div class="btn modal-notify-btn ">Закрыть</div>
+    </div>
+  </div>
+
+  <!-- Ркомендовать -->
+  <div class="modal modal-recommend ">
+    <div class="modal-wrap modal-notify-wrap">
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <h2 class="modal-title"> Ркомендовать</h2>
+      <span class="modal-reset-text">
+        Спасибо, что рекомендуете врача. Таким образом вы&nbsp;подтверждаете профессионализм коллеги и&nbsp;его
+        гарантии.
+      </span>
+      <span class="modal-reset-text">
+        Отменить рекомендацию можно в&nbsp;разделе &laquo;Мои коллеги&raquo; в&nbsp;личном кабинете.
+      </span>
+      <div class="btn modal-notify-btn ">Ркомендовать</div>
+    </div>
+  </div>
+
+  <!-- Пожаловаться -->
+  <div class="modal modal-complain ">
+    <div class="modal-wrap modal-complain-wrap">
+      <h2 class="modal-title">
+        Неверная информация
+      </h2>
+      <div class="modal-close">
+        <img src="img/icons/close-icon.svg" alt="">
+      </div>
+      <span class="modal-complain__text">Если вы считаете что в профиле</span>
+      <span class="modal-complain__account">Муратов Александр Виктрович</span>
+      <span class="modal-complain__text">
+        указана неверная информация, напишите нам об этом. Мы проведем проверку на соответствие с указанной информацией.
+      </span>
+
+      <form method="get" class="modal-support-form" action="#">
+
+        <div class="input-block select-wrap">
+          <div class="select">
+            <input class="select__input" type="hidden" name="">
+            <div class="select__head" value="">
+              <input type="text" readonly placeholder="Где допущена ошибка?">
+            </div>
+            <ul class="select__list" style="display: none;">
+              <li class="select__item">образование </li>
+              <li class="select__item"> Что-то </li>
+              <li class="select__item">Что-то </li>
+              <li class="select__item">Что-то </li>
+              <li class="select__item">Что-то </li>
+              <li class="select__item">Что-то </li>
+            </ul>
+          </div>
+        </div>
+        <div class="input-block">
+          <textarea class="input-block__field textarea" name="" id="" cols="30" rows="30"
+            placeholder="Напишите нам сообщение"></textarea>
+        </div>
+        <input type="submit" value="Отправить" class="login-submit modal-support-submit btn">
+      </form>
+    </div>
+  </div>
+
+  <!-- Данные сохранены -->
+  <div class="modal modal-saved  ">
+    <div class="modal-wrap modal-nocode-wrap">
+      <h2 class="modal-title"> Данные сохранены
+      </h2>
+
+      <span class="modal-nocode-text">
+        Черновик профиля сохранен. Пока он не виден посетителям сайта. Ваш профиль станет доступным для прсмотра только
+        после публикации. Это можно сделать в любое время в личном кабинете.
+      </span>
+
+      <div class="modal-saved-close btn">Продолжить</div>
+    </div>
+  </div>
+
+  <div class="modal modal-setavatar active ">
+    <div class="modal-wrap modal-nocode-wrap">
+      <h2 class="modal-title"> Загрузить фотографию
+      </h2>
+
+      <span class="modal-nocode-text">
+        Вы забыли загрузить фоторафию профиля. Настоятельно рекомендуем Вам это сделать. Клиентам или коллегам будет
+        сложно найти или выбрать Вас без фотографии.
+      </span>
+
+      <input type="file" id="modalPhoto" class="modal-setavatar__file">
+      <label for="modalPhoto" class="modal-setavatar__label btn">
+        Загрузить фотографию
+      </label>
+      <span class="modal-setavatar__text  modal-setavatar-close">Не загружать</span>
+
+    </div>
+  </div>
+
+  <header class="header header_login ">
+    <div class="wrap content-flex">
+      <div class="logo">
+        <img src="img/icons/logo.svg" alt="Визитка Врача">
+      </div>
+      <div class="city toModal js-toChooseCity">
+        <img src="img/icons/city-icon.svg" alt="">
+        <span class="name">Москва</span>
+      </div>
+
+      <a href="#" class="header-account">
+        Муратов. А
+      </a>
+
+    </div>
+  </header>
+
+  <main class="main ">
+
+    <section class="section settings">
+
+      <div class="wrap">
+        <div class="section-nav">
+          <a href="#"> Главная </a>
+          <img src="img/icons/arrow-icon.svg" alt="">
+          <a href="#"> Личный кабинет </a>
+          <img src="img/icons/arrow-icon.svg" alt="">
+          <a href="#"> Заполнение профиля </a>
+        </div>
+      </div>
+
+      <div class="wrap content-flex">
+
+        <div class="sidebar ">
+          <div class="profile-nav">
+            <a href="#" class="btn">Продолжить</a>
+            <a href="#" class="btn-light">Сохранить черновик</a>
+            <nav>
+              <li class="profile-nav__item current"><a href="#personalNav" class="anchor">Персональная информация</a>
+              </li>
+              <li class="profile-nav__item "><a href="#specialityNav" class="anchor">Специальности</a></li>
+              <li class="profile-nav__item "><a href="#jobNav" class="anchor">Опыт работы</a></li>
+              <li class="profile-nav__item "><a href="#moreNav" class="anchor">Дополнительная информация </a></li>
+              <li class="profile-nav__item "><a href="#appointmentNav" class="anchor">Прием</a></li>
+              <li class="profile-nav__item "><a href="#prepareNav" class="anchor">Как подготовиться к&nbsp;приему</a>
+              </li>
+            </nav>
+          </div>
+        </div>
+
+        <div class="content">
+          <h1 class="section-title settings-title">Заполнение профиля</h1>
+
+          <!-- общая информация  -->
+          <div class="settings-box" id="personalNav">
+            <h2 class="settings-box__title">Персональная информация</h2>
+
+            <div class="settings-box__wrap">
+              <form action="#" class="settings-photo">
+
+                <img src="img/icons/camera-icon.svg" alt="" class="settings-photo__icon">
+                <span class="settings-photo__text">Загрузитите фотографию&nbsp;профиля</span>
+                <input type="file" id="photo" class="settings-photo__file">
+                <label for="photo" class="settings-photo__submit btn">
+                  Загрузить фотографию
+                </label>
+              </form>
+
+              <form action="#" class="settings-info">
+                <div class="settings-info__item">
+                  <span class="settings-info__text">Фамилия</span>
+                  <div class="input-block">
+                    <input type="text" placeholder="Иванов" class="input-block__field field">
+                  </div>
+                </div>
+                <div class="settings-info__item">
+                  <span class="settings-info__text">Имя</span>
+                  <div class="input-block">
+                    <input type="text" placeholder="Иван" class="input-block__field field">
+                  </div>
+                </div>
+                <div class="settings-info__item">
+                  <span class="settings-info__text">Отчество</span>
+                  <div class="input-block">
+                    <input type="text" placeholder="Иванович" class="input-block__field field">
+                  </div>
+                </div>
+                <div class="settings-info__item">
+                  <span class="settings-info__text">Дата рождения</span>
+                  <div class="input-block select-wrap">
+                    <div class="select">
+                      <input class="select__input" type="hidden" name="">
+                      <div class="select__head" value="">
+                        <input type="text" readonly placeholder="01">
+                      </div>
+                      <ul class="select__list" style="display: none;">
+                        <li class="select__item">01</li>
+                        <li class="select__item">02 </li>
+                        <li class="select__item">03 </li>
+                        <li class="select__item">04 </li>
+                        <li class="select__item">05 </li>
+                        <li class="select__item">06 </li>
+                        <li class="select__item">07 </li>
+                        <li class="select__item">08 </li>
+                        <li class="select__item">09 </li>
+                        <li class="select__item">10 </li>
+                        <li class="select__item">11 </li>
+                        <li class="select__item">12 </li>
+                        <li class="select__item">13 </li>
+                        <li class="select__item">14 </li>
+                        <li class="select__item">15 </li>
+                        <li class="select__item">16 </li>
+                        <li class="select__item">17 </li>
+                        <li class="select__item">18 </li>
+                        <li class="select__item">19 </li>
+                        <li class="select__item">20 </li>
+                        <li class="select__item">21 </li>
+                        <li class="select__item">22 </li>
+                        <li class="select__item">23 </li>
+                        <li class="select__item">24 </li>
+                        <li class="select__item">25 </li>
+                        <li class="select__item">26 </li>
+                        <li class="select__item">27 </li>
+                        <li class="select__item">28 </li>
+                        <li class="select__item">29 </li>
+                        <li class="select__item">30 </li>
+                        <li class="select__item">31 </li>
+                      </ul>
+                    </div>
+                    <div class="select">
+                      <input class="select__input" type="hidden" name="">
+                      <div class="select__head" value="">
+                        <input type="text" readonly placeholder="Января">
+                      </div>
+                      <ul class="select__list" style="display: none;">
+                        <li class="select__item">Января </li>
+                        <li class="select__item">Февраля </li>
+                        <li class="select__item">Марта</li>
+                        <li class="select__item">Апреля </li>
+                        <li class="select__item">Мая </li>
+                        <li class="select__item">Июня </li>
+                        <li class="select__item">Июля </li>
+                        <li class="select__item">Августа </li>
+                        <li class="select__item">Сентября </li>
+                        <li class="select__item">Октября </li>
+                        <li class="select__item">Ноября </li>
+                        <li class="select__item">Декабря </li>
+                      </ul>
+                    </div>
+                    <div class="select">
+                      <input class="select__input" type="hidden" name="">
+                      <div class="select__head" value="">
+                        <input type="text" readonly placeholder="2020">
+                      </div>
+                      <ul class="select__list" style="display: none;">
+                        <li class="select__item">2020 </li>
+                        <li class="select__item">2019 </li>
+                        <li class="select__item">2018 </li>
+                        <li class="select__item">2017 </li>
+                        <li class="select__item">2016 </li>
+                        <li class="select__item">2015 </li>
+                        <li class="select__item">2014 </li>
+                        <li class="select__item">2013 </li>
+                        <li class="select__item">2012 </li>
+                        <li class="select__item">2011 </li>
+                        <li class="select__item">2010 </li>
+                        <li class="select__item">2009 </li>
+                        <li class="select__item">2008 </li>
+                        <li class="select__item">2007 </li>
+                        <li class="select__item">2006 </li>
+                        <li class="select__item">2006 </li>
+                        <li class="select__item">2004 </li>
+                        <li class="select__item">2003 </li>
+                        <li class="select__item">2002 </li>
+                        <li class="select__item">2001 </li>
+                        <li class="select__item">2000 </li>
+                        <li class="select__item">1999 </li>
+                        <li class="select__item">1998 </li>
+                        <li class="select__item">1997 </li>
+                        <li class="select__item">1996 </li>
+                        <li class="select__item">1995 </li>
+                        <li class="select__item">1994 </li>
+                        <li class="select__item">1993 </li>
+                        <li class="select__item">1992 </li>
+                        <li class="select__item">1991 </li>
+                        <li class="select__item">1990 </li>
+                        <li class="select__item">1989 </li>
+                        <li class="select__item">1988 </li>
+                        <li class="select__item">1987 </li>
+                        <li class="select__item">1986 </li>
+                        <li class="select__item">1985 </li>
+                        <li class="select__item">1984 </li>
+                        <li class="select__item">1983 </li>
+                        <li class="select__item">1982 </li>
+                        <li class="select__item">1981 </li>
+                        <li class="select__item">1980 </li>
+                        <li class="select__item">1979 </li>
+                        <li class="select__item">1978 </li>
+                        <li class="select__item">1977 </li>
+                        <li class="select__item">1976 </li>
+                        <li class="select__item">1975 </li>
+                        <li class="select__item">1974 </li>
+                        <li class="select__item">1973 </li>
+                        <li class="select__item">1972 </li>
+                        <li class="select__item">1971 </li>
+                        <li class="select__item">1970 </li>
+                        <li class="select__item">1969 </li>
+                        <li class="select__item">1968 </li>
+                        <li class="select__item">1967 </li>
+                        <li class="select__item">1966 </li>
+                        <li class="select__item">1965 </li>
+                        <li class="select__item">1964 </li>
+                        <li class="select__item">1963 </li>
+                        <li class="select__item">1962 </li>
+                        <li class="select__item">1961 </li>
+                        <li class="select__item">1960 </li>
+                        <li class="select__item">1959 </li>
+                        <li class="select__item">1958 </li>
+                        <li class="select__item">1957 </li>
+                        <li class="select__item">1956 </li>
+                        <li class="select__item">1955 </li>
+                        <li class="select__item">1954 </li>
+                        <li class="select__item">1953 </li>
+                        <li class="select__item">1952 </li>
+                        <li class="select__item">1951 </li>
+                        <li class="select__item">1950 </li>
+
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="settings-info__item">
+                  <span class="settings-info__text">E-mail</span>
+                  <div class="input-block">
+                    <span class="settings-info__email">mymail@mail.com</span>
+                    <label class="checkbox ">
+                      <input type="checkbox">
+                      <span class="checkbox__text">Показывать коллегам для рабочей переписки</span>
+                    </label>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+          </div>
+          <!-- Базовое образование -->
+          <div class="settings-box">
+            <h2 class="settings-box__title">Базовое образование</h2>
+            <div class="settings-education">
+
+              <div class="settings-education__type">
+                <label class="radio js-MiddleEducationRadio">
+                  <input type="radio" name="educationType">
+                  <span class="radio__text">Среднее специальное</span>
+                </label>
+
+                <label class="radio js-HighEducationRadio">
+                  <input type="radio" name="educationType" checked>
+                  <span class="radio__text">Высшее</span>
+                </label>
+
+              </div>
+              <div class="js-middleEducation settings-education__middle">
+                <div class="settings-education__item">
+                  <span class="settings-education__text">Учебное заведение</span>
+                  <div class="input-block">
+                    <input type="text" placeholder="Институт пирогова" class="input-block__field field">
+                  </div>
+                </div>
+                <div class="settings-education__item">
+                  <span class="settings-education__text">Год окончания</span>
+                  <div class="select">
+                    <input class="select__input" type="hidden" name="">
+                    <div class="select__head" value="">
+                      <input type="text" readonly placeholder="2010">
+                    </div>
+                    <ul class="select__list" style="display: none;">
+                      <li class="select__item">2020 </li>
+                      <li class="select__item">2019 </li>
+                      <li class="select__item">2018 </li>
+                      <li class="select__item">2017 </li>
+                      <li class="select__item">2016 </li>
+                      <li class="select__item">2015 </li>
+                      <li class="select__item">2014 </li>
+                      <li class="select__item">2013 </li>
+                      <li class="select__item">2012 </li>
+                      <li class="select__item">2011 </li>
+                      <li class="select__item">2010 </li>
+                      <li class="select__item">2009 </li>
+                      <li class="select__item">2008 </li>
+                      <li class="select__item">2007 </li>
+                      <li class="select__item">2006 </li>
+                      <li class="select__item">2006 </li>
+                      <li class="select__item">2004 </li>
+                      <li class="select__item">2003 </li>
+                      <li class="select__item">2002 </li>
+                      <li class="select__item">2001 </li>
+                      <li class="select__item">2000 </li>
+                      <li class="select__item">1999 </li>
+                      <li class="select__item">1998 </li>
+                      <li class="select__item">1997 </li>
+                      <li class="select__item">1996 </li>
+                      <li class="select__item">1995 </li>
+                      <li class="select__item">1994 </li>
+                      <li class="select__item">1993 </li>
+                      <li class="select__item">1992 </li>
+                      <li class="select__item">1991 </li>
+                      <li class="select__item">1990 </li>
+                      <li class="select__item">1989 </li>
+                      <li class="select__item">1988 </li>
+                      <li class="select__item">1987 </li>
+                      <li class="select__item">1986 </li>
+                      <li class="select__item">1985 </li>
+                      <li class="select__item">1984 </li>
+                      <li class="select__item">1983 </li>
+                      <li class="select__item">1982 </li>
+                      <li class="select__item">1981 </li>
+                      <li class="select__item">1980 </li>
+                      <li class="select__item">1979 </li>
+                      <li class="select__item">1978 </li>
+                      <li class="select__item">1977 </li>
+                      <li class="select__item">1976 </li>
+                      <li class="select__item">1975 </li>
+                      <li class="select__item">1974 </li>
+                      <li class="select__item">1973 </li>
+                      <li class="select__item">1972 </li>
+                      <li class="select__item">1971 </li>
+                      <li class="select__item">1970 </li>
+                      <li class="select__item">1969 </li>
+                      <li class="select__item">1968 </li>
+                      <li class="select__item">1967 </li>
+                      <li class="select__item">1966 </li>
+                      <li class="select__item">1965 </li>
+                      <li class="select__item">1964 </li>
+                      <li class="select__item">1963 </li>
+                      <li class="select__item">1962 </li>
+                      <li class="select__item">1961 </li>
+                      <li class="select__item">1960 </li>
+                      <li class="select__item">1959 </li>
+                      <li class="select__item">1958 </li>
+                      <li class="select__item">1957 </li>
+                      <li class="select__item">1956 </li>
+                      <li class="select__item">1955 </li>
+                      <li class="select__item">1954 </li>
+                      <li class="select__item">1953 </li>
+                      <li class="select__item">1952 </li>
+                      <li class="select__item">1951 </li>
+                      <li class="select__item">1950 </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="settings-education__item">
+                  <span class="settings-education__text">Специальность</span>
+                  <div class="select">
+                    <input class="select__input" type="hidden" name="">
+                    <div class="select__head" value="">
+                      <input type="text" readonly placeholder="Лечебное дело">
+                    </div>
+                    <ul class="select__list" style="display: none;">
+                      <li class="select__item">Лечебное дело </li>
+                      <li class="select__item">Педиатрия </li>
+                      <li class="select__item">Стоматология </li>
+                      <li class="select__item">Медико-профилактическое дело </li>
+                      <li class="select__item"> Медицинская биофизика </li>
+                      <li class="select__item">Медицинская биохимия </li>
+                      <li class="select__item">Медицинская кибернетика </li>
+                      <li class="select__item"> Высшее сестринское дело </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="js-highEducation settings-education__high">
+
+
+                <div class="settings-add" id="specialityNav">
+                  <h2 class="settings-box__title">Специальности</h2>
+
+                  <div class="settings-add__speciality speciality">
+
+                    <div class="settings-add__item speciality-item example" id="specialityExample">
+
+                      <div class="speciality-item__delete js-removeSpeciality">
+                        <img src="img/icons/delete-icon.svg" alt="">
+                      </div>
+                      <div class="settings-education__item">
+                        <span class="settings-education__text">Учебное заведение</span>
+                        <div class="input-block">
+                          <input type="text" placeholder="Институт пирогова" class="input-block__field field">
+                        </div>
+                      </div>
+
+                      <div class="settings-education__item">
+                        <span class="settings-education__text">Год окончания</span>
+                        <div class="select">
+                          <input class="select__input" type="hidden" name="">
+                          <div class="select__head" value="">
+                            <input type="text" readonly placeholder="2010">
+                          </div>
+                          <ul class="select__list" style="display: none;">
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="settings-education__item ">
+                        <span class="settings-education__text">Специализация</span>
+                        <div class="select">
+                          <input class="select__input" type="hidden" name="">
+                          <div class="select__head" value="">
+                            <input type="text" readonly placeholder="Ординатура">
+                          </div>
+                          <ul class="select__list" style="display: none;">
+                            <li class="select__item">Ординатура </li>
+                            <li class="select__item">Интернатура </li>
+                            <li class="select__item">Циклы первичной переподготовки</li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="settings-education__item">
+                        <span class="settings-education__text">Специальность</span>
+                        <div class="select">
+                          <input class="select__input" type="hidden" name="">
+                          <div class="select__head" value="">
+                            <input type="text" readonly placeholder="Лечебное дело">
+                          </div>
+                          <ul class="select__list" style="display: none;">
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="settings-add__item speciality-item ">
+
+
+                      <div class="settings-education__item">
+                        <span class="settings-education__text">Учебное заведение</span>
+                        <div class="input-block">
+                          <input type="text" placeholder="Институт пирогова" class="input-block__field field">
+                        </div>
+                      </div>
+
+                      <div class="settings-education__item">
+                        <span class="settings-education__text">Год окончания</span>
+                        <div class="select">
+                          <input class="select__input" type="hidden" name="">
+                          <div class="select__head" value="">
+                            <input type="text" readonly placeholder="2010">
+                          </div>
+                          <ul class="select__list" style="display: none;">
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="settings-education__item ">
+                        <span class="settings-education__text">Специализация</span>
+                        <div class="select">
+                          <input class="select__input" type="hidden" name="">
+                          <div class="select__head" value="">
+                            <input type="text" readonly placeholder="Ординатура">
+                          </div>
+                          <ul class="select__list" style="display: none;">
+                            <li class="select__item">Ординатура </li>
+                            <li class="select__item">Интернатура </li>
+                            <li class="select__item">Циклы первичной переподготовки</li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="settings-education__item">
+                        <span class="settings-education__text">Специальность</span>
+                        <div class="select">
+                          <input class="select__input" type="hidden" name="">
+                          <div class="select__head" value="">
+                            <input type="text" readonly placeholder="Лечебное дело">
+                          </div>
+                          <ul class="select__list" style="display: none;">
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                            <li class="select__item">Что-то </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="btn-light settings-add__btn js-addSpeciality">Добавить специальность</div>
+                </div>
+                <div class="settings-education__item">
+                  <span class="settings-education__text">Ученая степень</span>
+                  <div class="select">
+                    <input class="select__input" type="hidden" name="">
+                    <div class="select__head" value="">
+                      <input type="text" readonly placeholder="Доктор наук">
+                    </div>
+                    <ul class="select__list" style="display: none;">
+                      <li class="select__item js-degreeDoctor">Доктор наук </li>
+                      <li class="select__item js-degreeCandidate">Кандидат наук </li>
+                      <li class="select__item js-degreeEmpty"> Нет </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="settings-education__item js-themeCandidate" style="width: 100%;">
+                  <span class="settings-education__text">Тема кандидатской
+                    диссертации</span>
+                  <div class="input-block">
+                    <input type="text" placeholder="Тема кандидатской диссертации" class="input-block__field field">
+                  </div>
+                </div>
+                <div class="settings-education__item js-themeDoctor" style="width: 100%;">
+                  <span class="settings-education__text">Тема докторской
+                    диссертации</span>
+                  <div class="input-block">
+                    <input type="text" placeholder="Тема докторской диссертации" class="input-block__field field">
+                  </div>
+                </div>
+                <div class="settings-education__item">
+                  <span class="settings-education__text">Ученое звание</span>
+                  <div class="select">
+                    <input class="select__input" type="hidden" name="">
+                    <div class="select__head" value="">
+                      <input type="text" readonly placeholder="Нет">
+                    </div>
+                    <ul class="select__list" style="display: none;">
+                      <li class="select__item">Да </li>
+                      <li class="select__item">Нет </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="settings-education__item">
+                  <span class="settings-education__text">Категория</span>
+                  <div class="select">
+                    <input class="select__input" type="hidden" name="">
+                    <div class="select__head" value="">
+                      <input type="text" readonly placeholder="Нет">
+                    </div>
+                    <ul class="select__list" style="display: none;">
+                      <li class="select__item">Да </li>
+                      <li class="select__item">Нет </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+
+
+          </div>
+          <!-- Опыт работы -->
+          <div class="settings-box" id="jobNav">
+            <h2 class="settings-box__title">Опыт работы</h2>
+
+            <div class="settings-jobs">
+              <div class="settings-jobs__wrap">
+                <div class="settings-jobs__block ">
+
+                  <div class="settings-jobs__item">
+                    <span class="settings-jobs__text">Начало работы</span>
+                    <div class="input-block select-wrap">
+
+                      <div class="select">
+                        <input class="select__input" type="hidden" name="">
+                        <div class="select__head" value="">
+                          <input type="text" readonly placeholder="Январь">
+                        </div>
+                        <ul class="select__list" style="display: none;">
+                          <li class="select__item">Январь </li>
+                          <li class="select__item">Февраль </li>
+                          <li class="select__item">Март</li>
+                          <li class="select__item">Апрель </li>
+                          <li class="select__item">Май </li>
+                          <li class="select__item">Июнь </li>
+                          <li class="select__item">Июль </li>
+                          <li class="select__item">Август </li>
+                          <li class="select__item">Сентябрь </li>
+                          <li class="select__item">Октябрь </li>
+                          <li class="select__item">Ноябрь </li>
+                          <li class="select__item">Декабрь </li>
+                        </ul>
+                      </div>
+                      <div class="select">
+                        <input class="select__input" type="hidden" name="">
+                        <div class="select__head" value="">
+                          <input type="text" readonly placeholder="2020">
+                        </div>
+                        <ul class="select__list" style="display: none;">
+                          <li class="select__item">2020 </li>
+                          <li class="select__item">2019 </li>
+                          <li class="select__item">2018 </li>
+                          <li class="select__item">2017 </li>
+                          <li class="select__item">2016 </li>
+                          <li class="select__item">2015 </li>
+                          <li class="select__item">2014 </li>
+                          <li class="select__item">2013 </li>
+                          <li class="select__item">2012 </li>
+                          <li class="select__item">2011 </li>
+                          <li class="select__item">2010 </li>
+                          <li class="select__item">2009 </li>
+                          <li class="select__item">2008 </li>
+                          <li class="select__item">2007 </li>
+                          <li class="select__item">2006 </li>
+                          <li class="select__item">2006 </li>
+                          <li class="select__item">2004 </li>
+                          <li class="select__item">2003 </li>
+                          <li class="select__item">2002 </li>
+                          <li class="select__item">2001 </li>
+                          <li class="select__item">2000 </li>
+                          <li class="select__item">1999 </li>
+                          <li class="select__item">1998 </li>
+                          <li class="select__item">1997 </li>
+                          <li class="select__item">1996 </li>
+                          <li class="select__item">1995 </li>
+                          <li class="select__item">1994 </li>
+                          <li class="select__item">1993 </li>
+                          <li class="select__item">1992 </li>
+                          <li class="select__item">1991 </li>
+                          <li class="select__item">1990 </li>
+                          <li class="select__item">1989 </li>
+                          <li class="select__item">1988 </li>
+                          <li class="select__item">1987 </li>
+                          <li class="select__item">1986 </li>
+                          <li class="select__item">1985 </li>
+                          <li class="select__item">1984 </li>
+                          <li class="select__item">1983 </li>
+                          <li class="select__item">1982 </li>
+                          <li class="select__item">1981 </li>
+                          <li class="select__item">1980 </li>
+                          <li class="select__item">1979 </li>
+                          <li class="select__item">1978 </li>
+                          <li class="select__item">1977 </li>
+                          <li class="select__item">1976 </li>
+                          <li class="select__item">1975 </li>
+                          <li class="select__item">1974 </li>
+                          <li class="select__item">1973 </li>
+                          <li class="select__item">1972 </li>
+                          <li class="select__item">1971 </li>
+                          <li class="select__item">1970 </li>
+                          <li class="select__item">1969 </li>
+                          <li class="select__item">1968 </li>
+                          <li class="select__item">1967 </li>
+                          <li class="select__item">1966 </li>
+                          <li class="select__item">1965 </li>
+                          <li class="select__item">1964 </li>
+                          <li class="select__item">1963 </li>
+                          <li class="select__item">1962 </li>
+                          <li class="select__item">1961 </li>
+                          <li class="select__item">1960 </li>
+                          <li class="select__item">1959 </li>
+                          <li class="select__item">1958 </li>
+                          <li class="select__item">1957 </li>
+                          <li class="select__item">1956 </li>
+                          <li class="select__item">1955 </li>
+                          <li class="select__item">1954 </li>
+                          <li class="select__item">1953 </li>
+                          <li class="select__item">1952 </li>
+                          <li class="select__item">1951 </li>
+                          <li class="select__item">1950 </li>
+
+
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="settings-jobs__item">
+                    <span class="settings-jobs__text">Окончание работы</span>
+                    <div class="input-block select-wrap">
+
+                      <div class="select  js-finishJob">
+                        <input class="select__input" type="hidden" name="">
+                        <div class="select__head" value="">
+                          <input type="text" readonly placeholder="Январь">
+                        </div>
+                        <ul class="select__list" style="display: none;">
+                          <li class="select__item">Январь </li>
+                          <li class="select__item">Февраль </li>
+                          <li class="select__item">Март</li>
+                          <li class="select__item">Апрель </li>
+                          <li class="select__item">Май </li>
+                          <li class="select__item">Июнь </li>
+                          <li class="select__item">Июль </li>
+                          <li class="select__item">Август </li>
+                          <li class="select__item">Сентябрь </li>
+                          <li class="select__item">Октябрь </li>
+                          <li class="select__item">Ноябрь </li>
+                          <li class="select__item">Декабрь </li>
+                        </ul>
+                      </div>
+                      <div class="select  js-finishJob">
+                        <input class="select__input" type="hidden" name="">
+                        <div class="select__head" value="">
+                          <input type="text" readonly placeholder="2020">
+                        </div>
+                        <ul class="select__list" style="display: none;">
+                          <li class="select__item">2020 </li>
+                          <li class="select__item">2019 </li>
+                          <li class="select__item">2018 </li>
+                          <li class="select__item">2017 </li>
+                          <li class="select__item">2016 </li>
+                          <li class="select__item">2015 </li>
+                          <li class="select__item">2014 </li>
+                          <li class="select__item">2013 </li>
+                          <li class="select__item">2012 </li>
+                          <li class="select__item">2011 </li>
+                          <li class="select__item">2010 </li>
+                          <li class="select__item">2009 </li>
+                          <li class="select__item">2008 </li>
+                          <li class="select__item">2007 </li>
+                          <li class="select__item">2006 </li>
+                          <li class="select__item">2006 </li>
+                          <li class="select__item">2004 </li>
+                          <li class="select__item">2003 </li>
+                          <li class="select__item">2002 </li>
+                          <li class="select__item">2001 </li>
+                          <li class="select__item">2000 </li>
+                          <li class="select__item">1999 </li>
+                          <li class="select__item">1998 </li>
+                          <li class="select__item">1997 </li>
+                          <li class="select__item">1996 </li>
+                          <li class="select__item">1995 </li>
+                          <li class="select__item">1994 </li>
+                          <li class="select__item">1993 </li>
+                          <li class="select__item">1992 </li>
+                          <li class="select__item">1991 </li>
+                          <li class="select__item">1990 </li>
+                          <li class="select__item">1989 </li>
+                          <li class="select__item">1988 </li>
+                          <li class="select__item">1987 </li>
+                          <li class="select__item">1986 </li>
+                          <li class="select__item">1985 </li>
+                          <li class="select__item">1984 </li>
+                          <li class="select__item">1983 </li>
+                          <li class="select__item">1982 </li>
+                          <li class="select__item">1981 </li>
+                          <li class="select__item">1980 </li>
+                          <li class="select__item">1979 </li>
+                          <li class="select__item">1978 </li>
+                          <li class="select__item">1977 </li>
+                          <li class="select__item">1976 </li>
+                          <li class="select__item">1975 </li>
+                          <li class="select__item">1974 </li>
+                          <li class="select__item">1973 </li>
+                          <li class="select__item">1972 </li>
+                          <li class="select__item">1971 </li>
+                          <li class="select__item">1970 </li>
+                          <li class="select__item">1969 </li>
+                          <li class="select__item">1968 </li>
+                          <li class="select__item">1967 </li>
+                          <li class="select__item">1966 </li>
+                          <li class="select__item">1965 </li>
+                          <li class="select__item">1964 </li>
+                          <li class="select__item">1963 </li>
+                          <li class="select__item">1962 </li>
+                          <li class="select__item">1961 </li>
+                          <li class="select__item">1960 </li>
+                          <li class="select__item">1959 </li>
+                          <li class="select__item">1958 </li>
+                          <li class="select__item">1957 </li>
+                          <li class="select__item">1956 </li>
+                          <li class="select__item">1955 </li>
+                          <li class="select__item">1954 </li>
+                          <li class="select__item">1953 </li>
+                          <li class="select__item">1952 </li>
+                          <li class="select__item">1951 </li>
+                          <li class="select__item">1950 </li>
+
+                        </ul>
+                      </div>
+                    </div>
+                    <label class="checkbox js-finishJob-checkbox ">
+                      <input type="checkbox">
+                      <span class="checkbox__text">По настоящее время</span>
+                    </label>
+                  </div>
+                  <div class="settings-jobs__item">
+                    <span class="settings-jobs__text">Организация</span>
+                    <div class="input-block">
+                      <input type="text" placeholder="Название компании" class="input-block__field field">
+                    </div>
+                  </div>
+                  <div class="settings-jobs__item speciality">
+                    <span class="settings-jobs__text">Специальность</span>
+
+                    <div class="settings-jobs__speciality">
+                      <div class="input-block example">
+                        <input type="text" placeholder="Мануальный терапевт" class="input-block__field field">
+                      </div>
+                      <div class="input-block ">
+                        <input type="text" placeholder="Мануальный терапевт" class="input-block__field field">
+                      </div>
+                    </div>
+
+                    <span class="settings-jobs__add js-addJobSpeciality" id="addJobSpecialityTemp">Добавить
+                      специальность</span>
+                  </div>
+                </div>
+                <div class="settings-jobs__block example " id="jobExample">
+                  <div class="settings-jobs__delete js-removeJob">
+                    <img src="img/icons/delete-icon.svg" alt="">
+                  </div>
+                  <div class="settings-jobs__item">
+                    <span class="settings-jobs__text">Начало работы</span>
+                    <div class="input-block select-wrap">
+
+                      <div class="select">
+                        <input class="select__input" type="hidden" name="">
+                        <div class="select__head" value="">
+                          <input type="text" readonly placeholder="Январь">
+                        </div>
+                        <ul class="select__list" style="display: none;">
+                          <li class="select__item">Январь </li>
+                          <li class="select__item">Февраль </li>
+                          <li class="select__item">Март</li>
+                          <li class="select__item">Апрель </li>
+                          <li class="select__item">Май </li>
+                          <li class="select__item">Июнь </li>
+                          <li class="select__item">Июль </li>
+                          <li class="select__item">Август </li>
+                          <li class="select__item">Сентябрь </li>
+                          <li class="select__item">Октябрь </li>
+                          <li class="select__item">Ноябрь </li>
+                          <li class="select__item">Декабрь </li>
+                        </ul>
+                      </div>
+                      <div class="select">
+                        <input class="select__input" type="hidden" name="">
+                        <div class="select__head" value="">
+                          <input type="text" readonly placeholder="2020">
+                        </div>
+                        <ul class="select__list" style="display: none;">
+                          <li class="select__item">2020 </li>
+                          <li class="select__item">2019 </li>
+                          <li class="select__item">2018 </li>
+                          <li class="select__item">2017 </li>
+                          <li class="select__item">2016 </li>
+                          <li class="select__item">2015 </li>
+                          <li class="select__item">2014 </li>
+                          <li class="select__item">2013 </li>
+                          <li class="select__item">2012 </li>
+                          <li class="select__item">2011 </li>
+                          <li class="select__item">2010 </li>
+                          <li class="select__item">2009 </li>
+                          <li class="select__item">2008 </li>
+                          <li class="select__item">2007 </li>
+                          <li class="select__item">2006 </li>
+                          <li class="select__item">2006 </li>
+                          <li class="select__item">2004 </li>
+                          <li class="select__item">2003 </li>
+                          <li class="select__item">2002 </li>
+                          <li class="select__item">2001 </li>
+                          <li class="select__item">2000 </li>
+                          <li class="select__item">1999 </li>
+                          <li class="select__item">1998 </li>
+                          <li class="select__item">1997 </li>
+                          <li class="select__item">1996 </li>
+                          <li class="select__item">1995 </li>
+                          <li class="select__item">1994 </li>
+                          <li class="select__item">1993 </li>
+                          <li class="select__item">1992 </li>
+                          <li class="select__item">1991 </li>
+                          <li class="select__item">1990 </li>
+                          <li class="select__item">1989 </li>
+                          <li class="select__item">1988 </li>
+                          <li class="select__item">1987 </li>
+                          <li class="select__item">1986 </li>
+                          <li class="select__item">1985 </li>
+                          <li class="select__item">1984 </li>
+                          <li class="select__item">1983 </li>
+                          <li class="select__item">1982 </li>
+                          <li class="select__item">1981 </li>
+                          <li class="select__item">1980 </li>
+                          <li class="select__item">1979 </li>
+                          <li class="select__item">1978 </li>
+                          <li class="select__item">1977 </li>
+                          <li class="select__item">1976 </li>
+                          <li class="select__item">1975 </li>
+                          <li class="select__item">1974 </li>
+                          <li class="select__item">1973 </li>
+                          <li class="select__item">1972 </li>
+                          <li class="select__item">1971 </li>
+                          <li class="select__item">1970 </li>
+                          <li class="select__item">1969 </li>
+                          <li class="select__item">1968 </li>
+                          <li class="select__item">1967 </li>
+                          <li class="select__item">1966 </li>
+                          <li class="select__item">1965 </li>
+                          <li class="select__item">1964 </li>
+                          <li class="select__item">1963 </li>
+                          <li class="select__item">1962 </li>
+                          <li class="select__item">1961 </li>
+                          <li class="select__item">1960 </li>
+                          <li class="select__item">1959 </li>
+                          <li class="select__item">1958 </li>
+                          <li class="select__item">1957 </li>
+                          <li class="select__item">1956 </li>
+                          <li class="select__item">1955 </li>
+                          <li class="select__item">1954 </li>
+                          <li class="select__item">1953 </li>
+                          <li class="select__item">1952 </li>
+                          <li class="select__item">1951 </li>
+                          <li class="select__item">1950 </li>
+
+
+
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="settings-jobs__item">
+                    <span class="settings-jobs__text">Окончание работы</span>
+                    <div class="input-block select-wrap">
+
+                      <div class="select  js-finishJob">
+                        <input class="select__input" type="hidden" name="">
+                        <div class="select__head" value="">
+                          <input type="text" readonly placeholder="Январь">
+                        </div>
+                        <ul class="select__list" style="display: none;">
+                          <li class="select__item">Январь </li>
+                          <li class="select__item">Февраль </li>
+                          <li class="select__item">Март</li>
+                          <li class="select__item">Апрель </li>
+                          <li class="select__item">Май </li>
+                          <li class="select__item">Июнь </li>
+                          <li class="select__item">Июль </li>
+                          <li class="select__item">Август </li>
+                          <li class="select__item">Сентябрь </li>
+                          <li class="select__item">Октябрь </li>
+                          <li class="select__item">Ноябрь </li>
+                          <li class="select__item">Декабрь </li>
+                        </ul>
+                      </div>
+                      <div class="select  js-finishJob">
+                        <input class="select__input" type="hidden" name="">
+                        <div class="select__head" value="">
+                          <input type="text" readonly placeholder="2020">
+                        </div>
+                        <ul class="select__list" style="display: none;">
+                          <li class="select__item">2020 </li>
+                          <li class="select__item">2019 </li>
+                          <li class="select__item">2018 </li>
+                          <li class="select__item">2017 </li>
+                          <li class="select__item">2016 </li>
+                          <li class="select__item">2015 </li>
+                          <li class="select__item">2014 </li>
+                          <li class="select__item">2013 </li>
+                          <li class="select__item">2012 </li>
+                          <li class="select__item">2011 </li>
+                          <li class="select__item">2010 </li>
+                          <li class="select__item">2009 </li>
+                          <li class="select__item">2008 </li>
+                          <li class="select__item">2007 </li>
+                          <li class="select__item">2006 </li>
+                          <li class="select__item">2006 </li>
+                          <li class="select__item">2004 </li>
+                          <li class="select__item">2003 </li>
+                          <li class="select__item">2002 </li>
+                          <li class="select__item">2001 </li>
+                          <li class="select__item">2000 </li>
+                          <li class="select__item">1999 </li>
+                          <li class="select__item">1998 </li>
+                          <li class="select__item">1997 </li>
+                          <li class="select__item">1996 </li>
+                          <li class="select__item">1995 </li>
+                          <li class="select__item">1994 </li>
+                          <li class="select__item">1993 </li>
+                          <li class="select__item">1992 </li>
+                          <li class="select__item">1991 </li>
+                          <li class="select__item">1990 </li>
+                          <li class="select__item">1989 </li>
+                          <li class="select__item">1988 </li>
+                          <li class="select__item">1987 </li>
+                          <li class="select__item">1986 </li>
+                          <li class="select__item">1985 </li>
+                          <li class="select__item">1984 </li>
+                          <li class="select__item">1983 </li>
+                          <li class="select__item">1982 </li>
+                          <li class="select__item">1981 </li>
+                          <li class="select__item">1980 </li>
+                          <li class="select__item">1979 </li>
+                          <li class="select__item">1978 </li>
+                          <li class="select__item">1977 </li>
+                          <li class="select__item">1976 </li>
+                          <li class="select__item">1975 </li>
+                          <li class="select__item">1974 </li>
+                          <li class="select__item">1973 </li>
+                          <li class="select__item">1972 </li>
+                          <li class="select__item">1971 </li>
+                          <li class="select__item">1970 </li>
+                          <li class="select__item">1969 </li>
+                          <li class="select__item">1968 </li>
+                          <li class="select__item">1967 </li>
+                          <li class="select__item">1966 </li>
+                          <li class="select__item">1965 </li>
+                          <li class="select__item">1964 </li>
+                          <li class="select__item">1963 </li>
+                          <li class="select__item">1962 </li>
+                          <li class="select__item">1961 </li>
+                          <li class="select__item">1960 </li>
+                          <li class="select__item">1959 </li>
+                          <li class="select__item">1958 </li>
+                          <li class="select__item">1957 </li>
+                          <li class="select__item">1956 </li>
+                          <li class="select__item">1955 </li>
+                          <li class="select__item">1954 </li>
+                          <li class="select__item">1953 </li>
+                          <li class="select__item">1952 </li>
+                          <li class="select__item">1951 </li>
+                          <li class="select__item">1950 </li>
+
+                        </ul>
+                      </div>
+                    </div>
+                    <label class="checkbox js-finishJob-checkbox ">
+                      <input type="checkbox">
+                      <span class="checkbox__text">По настоящее время</span>
+                    </label>
+                  </div>
+                  <div class="settings-jobs__item">
+                    <span class="settings-jobs__text">Организация</span>
+                    <div class="input-block">
+                      <input type="text" placeholder="Название компании" class="input-block__field field">
+                    </div>
+                  </div>
+                  <div class="settings-jobs__item speciality">
+                    <span class="settings-jobs__text">Специальность</span>
+
+                    <div class="settings-jobs__speciality">
+
+                      <div class="input-block example">
+                        <input type="text" placeholder="Мануальный терапевт" class="input-block__field field">
+                      </div>
+                      <div class="input-block">
+                        <input type="text" placeholder="Мануальный терапевт" class="input-block__field field">
+                      </div>
+                    </div>
+
+                    <span class="settings-jobs__add js-addJobSpeciality">Добавить специальность</span>
+                  </div>
+                </div>
+
+
+              </div>
+
+
+              <div class="btn-light settings-add__btn js-addJob">Добавить место работы</div>
+            </div>
+
+          </div>
+          <!-- Доп информация  -->
+          <div class="settings-box" id="moreNav">
+            <h2 class="settings-box__title">Дополнительная информация</h2>
+
+            <div class="settings-more">
+              <div class="input-block">
+                <span class="input-block__hint">Расскажите об основных направлениях, которыми Вы занимаетесь или
+                  поделитесь любой другой информацией, которой посчитаете нужной.</span>
+
+                <textarea class="input-block__field textarea" name="" id="" cols="30" rows="30"
+                  placeholder="Направление деятельности: гипертоническая болезнь, ишемическая болезнь сердца, вторичные ипертензии, ритмология. Основной задачей своей деятельности я считаю восстановление качества жизни при любой патологи и лечение в первую очередь больного, а не болезни."></textarea>
+              </div>
+            </div>
+
+          </div>
+          <!-- Прием -->
+          <div class="settings-box" id="appointmentNav">
+            <h2 class="settings-box__title">Прием</h2>
+
+            <div class="settings-appointment">
+              <div class="settings-appointment__wrap">
+
+                <div class="settings-appointment__block example" id="apointmentExample">
+                  <div class="settings-appointment__delete js-removeApointment">
+                    <img src="img/icons/delete-icon.svg" alt="">
+                  </div>
+                  <div class="settings-appointment__item">
+                    <span class="settings-appointment__text">Место приема</span>
+                    <div class="input-block">
+                      <input type="text" placeholder="Открытая клиника" class="input-block__field field">
+                    </div>
+                  </div>
+                  <div class="settings-appointment__item">
+                    <span class="settings-appointment__text">Город</span>
+                    <div class="input-block">
+                      <input type="text" placeholder="Новосибирск" class="input-block__field field">
+                    </div>
+                  </div>
+                  <div class="settings-appointment__item withPhone">
+
+                    <span class="settings-appointment__text">Телефон регистратуры клиники</span>
+                    <div class="settings-phone__wrap">
+
+                      <div class="settings-phone__item example" id="phoneExample">
+                        <div class="input-block phone">
+                          <input type="text" readonly class="phone-code field" value="+7">
+                          <input type="text" placeholder="(123) 456-78-55" class="input-block__field field">
+                          <div class="settings-phone__delete">
+                            <img src="img/icons/delete-icon_disable.svg" alt="">
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="settings-phone__item">
+                        <div class="input-block phone">
+                          <input type="text" readonly class="phone-code field" value="+7">
+                          <input type="text" placeholder="(123) 456-78-55" class="input-block__field field">
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="settings-phone__add js-addPhone">Добавить телефон</div>
+                  </div>
+                  <div class="settings-appointment__item">
+                    <span class="settings-appointment__text">Прием</span>
+                    <div class="input-block settings-appointment__type">
+                      <label class="checkbox ">
+                        <input type="checkbox" checked>
+                        <span class="checkbox__text">Взрослых</span>
+                      </label>
+                      <label class="checkbox ">
+                        <input type="checkbox">
+                        <span class="checkbox__text">Детей</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="settings-appointment__item withHint ">
+                    <span class="settings-appointment__text">Прайс</span>
+
+                    <div class="settings-price">
+                      <div class="settings-price__wrap">
+
+                        <div class="settings-price__item">
+                          <div class="select">
+                            <span class="settings-appointment__hint">Направление</span>
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head" value="">
+                              <input type="text" readonly placeholder="Невролог (от 18 лет)">
+                            </div>
+                            <ul class="select__list" style="display: none;">
+                              <li class="select__item">Да </li>
+                              <li class="select__item">Нет </li>
+                            </ul>
+                          </div>
+                          <div class="input-block sum">
+                            <span class="settings-appointment__hint">Стоимость приема</span>
+
+                            <input type="text" placeholder="1000" class="input-block__field field">
+                            <span class="currency">Руб.</span>
+                          </div>
+
+                        </div>
+                        <div class="settings-price__item example" id="priceItemExample">
+                          <div class="select withoutArrow">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head" value="">
+                              <input type="text" readonly placeholder="Невролог (от 18 лет)">
+                            </div>
+                            <ul class="select__list" style="display: none;">
+                              <li class="select__item">Да </li>
+                              <li class="select__item">Нет </li>
+                            </ul>
+                            <div class="settings-price__delete">
+                              <img src="img/icons/delete-icon_disable.svg" alt="">
+                            </div>
+                          </div>
+
+                          <div class="input-block sum">
+
+                            <input type="text" placeholder="1000" class="input-block__field field">
+                            <span class="currency">Руб.</span>
+                          </div>
+
+                        </div>
+
+                      </div>
+                      <div class="settings-price__add js-addPriceItem">Добавить позицию</div>
+
+                    </div>
+
+
+                  </div>
+
+                </div>
+
+                <div class="settings-appointment__block">
+
+                  <div class="settings-appointment__item">
+                    <span class="settings-appointment__text">Место приема</span>
+                    <div class="input-block">
+                      <input type="text" placeholder="Открытая клиника" class="input-block__field field">
+                    </div>
+                  </div>
+                  <div class="settings-appointment__item">
+                    <span class="settings-appointment__text">Город</span>
+                    <div class="input-block">
+                      <input type="text" placeholder="Новосибирск" class="input-block__field field">
+                    </div>
+                  </div>
+                  <div class="settings-appointment__item withPhone ">
+                    <span class="settings-appointment__text">Телефон регистратуры клиники</span>
+                    <div class="settings-phone__wrap">
+
+                      <div class="settings-phone__item example" id="phoneExampleTemp">
+                        <div class="input-block phone">
+                          <input type="text" readonly class="phone-code field" value="+7">
+                          <input type="text" placeholder="(123) 456-78-55" class="input-block__field field">
+                          <div class="settings-phone__delete">
+                            <img src="img/icons/delete-icon_disable.svg" alt="">
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="settings-phone__item">
+                        <div class="input-block phone">
+                          <input type="text" readonly class="phone-code field" value="+7">
+                          <input type="text" placeholder="(123) 456-78-55" class="input-block__field field">
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="settings-phone__add js-addPhone" id="addPhoneTemp">Добавить телефон</div>
+                  </div>
+                  <div class="settings-appointment__item">
+                    <span class="settings-appointment__text">Прием</span>
+                    <div class="input-block settings-appointment__type">
+                      <label class="checkbox ">
+                        <input type="checkbox" checked>
+                        <span class="checkbox__text">Взрослых</span>
+                      </label>
+                      <label class="checkbox ">
+                        <input type="checkbox">
+                        <span class="checkbox__text">Детей</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="settings-appointment__item withHint ">
+                    <span class="settings-appointment__text">Прайс</span>
+
+                    <div class="settings-price">
+                      <div class="settings-price__wrap">
+
+                        <div class="settings-price__item">
+                          <div class="select">
+                            <span class="settings-appointment__hint">Направление</span>
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head" value="">
+                              <input type="text" readonly placeholder="Невролог (от 18 лет)">
+                            </div>
+                            <ul class="select__list" style="display: none;">
+                              <li class="select__item">Да </li>
+                              <li class="select__item">Нет </li>
+                            </ul>
+                          </div>
+                          <div class="input-block sum">
+                            <span class="settings-appointment__hint">Стоимость приема</span>
+
+                            <input type="text" placeholder="1000" class="input-block__field field">
+                            <span class="currency">Руб.</span>
+                          </div>
+
+                        </div>
+
+
+                        <div class="settings-price__item example" id="priceItemExample">
+                          <div class="select withoutArrow">
+                            <input class="select__input" type="hidden" name="">
+                            <div class="select__head" value="">
+                              <input type="text" readonly placeholder="Невролог (от 18 лет)">
+                            </div>
+                            <ul class="select__list" style="display: none;">
+                              <li class="select__item">Да </li>
+                              <li class="select__item">Нет </li>
+                            </ul>
+                            <div class="settings-price__delete">
+                              <img src="img/icons/delete-icon_disable.svg" alt="">
+                            </div>
+                          </div>
+                          <div class="input-block sum">
+
+                            <input type="text" placeholder="1000" class="input-block__field field">
+                            <span class="currency">Руб.</span>
+                          </div>
+
+                        </div>
+
+                      </div>
+                      <div class="settings-price__add js-addPriceItem" id="addPriceItemTemp">Добавить позицию</div>
+
+                    </div>
+
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="btn-light settings-appointment__btn js-addAppointment">Добавить место приема</div>
+
+
+
+            </div>
+
+
+            <div class="settings-personal">
+              <h2 class="settings-box__title">Личные консультации</h2>
+              <div class="settings-appointment__item ">
+                <span class="settings-appointment__text">Телефон личной консультации</span>
+                <div class="input-block phone">
+                  <input type="text" readonly class="phone-code field" value="+7">
+                  <input type="text" placeholder="(123) 456-78-55" class="input-block__field field">
+                </div>
+              </div>
+              <span class="settings-personal__text">
+                Вы&nbsp;можете указать номер своего телефона, однако мы&nbsp;рекомендуем не&nbsp;делать этого или
+                использовать только
+                отдельный рабочий номер.
+              </span>
+            </div>
+          </div>
+          <div class="settings-box" id="">
+            <h2 class="settings-box__title">Как подготовиться к приему</h2>
+
+            <div class="settings-more">
+              <div class="input-block">
+                <span class="input-block__hint">Расскажите свои пациентам, как подготовиться к приему.</span>
+
+                <textarea class="input-block__field textarea" name="" id="" cols="30" rows="30"
+                  placeholder="Введите текст"></textarea>
+              </div>
+            </div>
+
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap content-flex between">
+      <div class="footer-item">
+        &copy;&nbsp;AО&nbsp;&laquo;Визитка врача&raquo;, 2021.
+      </div>
+      <div class="footer-item">
+        <span> Написать в&nbsp;тех. поддержку</span>
+        <a href="mailto:Info@mail.com" class="link">Info@mail.com</a>
+      </div>
+      <div class="footer-item link">
+        Политика обработки информации
+      </div>
+    </div>
+  </footer>
+  <script src="js/jquery.js"></script>
+  <script src="js/droplist.js"></script>
+  <script src="js/jquery.mask.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
